@@ -2,324 +2,685 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>にこっと乗るだけ7｜新車の軽自動車4WDが月々定額｜カーサービス山形</title>
-<meta name="description" content="株式会社カーサービス山形の「にこっと乗るだけ7」。新車の軽自動車4WDが月々定額・コミコミ価格。車両代・自動車税・メンテナンス・ロードサービスまで全部込みのカーリース。山形県で8年連続販売台数No.1。">
-<meta name="theme-color" content="#f4820f">
-<meta property="og:title" content="にこっと乗るだけ7｜新車の軽自動車4WDが月々定額">
-<meta property="og:description" content="車両代・自動車税・車検・メンテ・ロードサービスまで全部コミコミ。新車4WD軽自動車が月々11,000円〜。カーサービス山形">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>にこっと乗るだけ7 デジタルパンフレット｜カーサービス山形｜新車4WD軽自動車 月々定額カーリース</title>
+<meta name="description" content="株式会社カーサービス山形「にこっと乗るだけ7」。新車の4WD軽自動車が月々11,000円〜の定額カーリース。車両代・自動車税・車検・メンテ・ロードサービスまで全部コミコミ。ページをめくる感覚でサービスをご覧いただけます。">
+<meta name="theme-color" content="#16243f">
+<meta property="og:title" content="にこっと乗るだけ7 デジタルパンフレット｜カーサービス山形">
+<meta property="og:description" content="新車4WD軽自動車が月々定額・コミコミ。創業47年・山形県内9店舗のカーサービス山形がお届けする、ページをめくるデジタルパンフレット。">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<style>
+:root{
+  --navy:#16243f; --navy-2:#1f3257; --orange:#f07800; --orange-2:#ff8c1a;
+  --ink:#222e3d; --muted:#69748a; --line:#dfe4ee; --paper:#ffffff; --paper-2:#fbfaf7;
+  --pink:#e6007e; --blue:#0a86b8; --red:#d33f1f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",YuGothic,"Noto Sans JP",sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1100px 700px at 50% -8%,#2a3c63,transparent 60%),
+    linear-gradient(160deg,#0f1a30 0%,#16243f 55%,#0c1424 100%);
+  min-height:100%;-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+
+/* ---------- top brand bar ---------- */
+.appbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px clamp(16px,4vw,40px);color:#fff}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .csy{font-family:Georgia,"Times New Roman",serif;font-weight:800;font-style:italic;font-size:26px;color:#fff;line-height:1}
+.logo .sub{font-size:9px;letter-spacing:.2em;color:var(--orange-2);line-height:1.5;font-weight:700}
+.appbar .tag{font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.72);text-align:right}
+.appbar .tag b{color:var(--orange-2)}
+@media(max-width:640px){.appbar .tag{display:none}}
+
+/* ---------- stage ---------- */
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 14px 12px;gap:12px}
+.viewport{perspective:2600px;display:flex;align-items:center;justify-content:center}
+.book{position:relative;width:var(--pw);height:var(--ph);transition:transform .6s ease;transform-style:preserve-3d}
+.paper{position:absolute;top:0;left:0;width:100%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.4,.15,.2,1)}
+.paper.flipped{transform:rotateY(-180deg)}
+.face{position:absolute;top:0;left:0;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:var(--paper);border-radius:3px;box-shadow:0 16px 38px rgba(8,14,28,.42);border:1px solid rgba(22,36,63,.12)}
+.face.back{transform:rotateY(180deg)}
+.mode-spread .face.front{border-radius:3px 9px 9px 3px}
+.mode-spread .face.back{border-radius:9px 3px 3px 9px}
+.mode-single .face{border-radius:8px}
+.mode-single .paper.flipped{pointer-events:none}
+.face::after{content:"";position:absolute;top:0;bottom:0;width:30px;pointer-events:none;z-index:6}
+.mode-spread .face.front::after{left:0;background:linear-gradient(90deg,rgba(22,36,63,.20),rgba(22,36,63,.05) 50%,transparent)}
+.mode-spread .face.back::after{right:0;background:linear-gradient(270deg,rgba(22,36,63,.20),rgba(22,36,63,.05) 50%,transparent)}
+.mode-single .face.front::after{left:0;width:18px;background:linear-gradient(90deg,rgba(22,36,63,.14),transparent)}
+
+/* ---------- shared page shell ---------- */
+.pg{position:absolute;inset:0;display:flex;flex-direction:column;padding:clamp(16px,3.2vmin,26px);overflow:hidden}
+.sechead{margin-bottom:12px}
+.sechead .k{font-size:10.5px;letter-spacing:.26em;color:var(--orange);font-weight:800}
+.sechead h2{font-size:clamp(19px,4.2vmin,25px);color:var(--navy);font-weight:800;margin-top:5px;letter-spacing:.02em}
+.sechead .bar{width:46px;height:3px;background:var(--orange);border-radius:2px;margin-top:9px}
+.pgfoot{margin-top:auto;padding-top:8px;font-size:9.5px;color:var(--muted);letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center}
+.pgfoot .b{font-family:Georgia,serif;font-style:italic;color:var(--navy);font-weight:800}
+
+/* ---------- COVER ---------- */
+.cover{background:
+    radial-gradient(640px 440px at 80% 14%,rgba(240,120,0,.26),transparent 60%),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 14px,transparent 14px 28px),
+    linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 60%,#26395f 100%);
+    color:#fff;justify-content:space-between}
+.cover .csy{font-family:Georgia,serif;font-style:italic;font-weight:800;font-size:clamp(26px,7vmin,40px);line-height:1}
+.cover .csb{font-size:10px;letter-spacing:.22em;color:var(--orange-2);font-weight:700;margin-top:4px}
+.cover .lede{font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.7);margin-top:18px}
+.cover h1{font-size:clamp(30px,9vmin,52px);font-weight:900;line-height:1.1;letter-spacing:.01em;margin-top:6px}
+.cover h1 em{font-style:normal;color:var(--orange-2)}
+.cover .nico{display:inline-grid;place-items:center;width:.9em;height:.9em;background:var(--orange);color:#fff;border-radius:50%;font-size:.78em;transform:translateY(.04em);margin-left:.05em}
+.cover .sb{display:inline-block;margin-top:14px;background:#fff200;color:var(--navy);font-weight:900;font-size:clamp(15px,4vmin,21px);padding:6px 16px;border-radius:10px;transform:rotate(-2deg);box-shadow:0 6px 0 rgba(0,0,0,.18)}
+.cover .badge{align-self:flex-start;margin-top:20px;display:inline-flex;align-items:baseline;gap:5px;background:radial-gradient(circle at 30% 20%,#fff6e8,#ffb24d 55%,var(--orange));color:var(--navy);border:3px solid rgba(255,255,255,.25);border-radius:14px;padding:9px 18px;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.cover .badge .s{font-size:13px;font-weight:900;letter-spacing:.06em}
+.cover .badge .b{font-size:clamp(34px,9vmin,48px);font-weight:900;line-height:.95;letter-spacing:-.01em}
+.cover .badge .b span{font-size:.4em;font-weight:800}
+.cover .badge .s2{font-size:10px;font-weight:800;letter-spacing:.05em;align-self:flex-end;margin-bottom:4px}
+.cover .foot{font-size:12px;color:rgba(255,255,255,.7);letter-spacing:.04em;line-height:1.7}
+.cover .foot .hint{color:var(--orange-2);font-weight:700}
+
+/* ---------- STRENGTHS ---------- */
+.strength{background:var(--paper-2)}
+.strength .lead{margin-top:2px;font-size:12.5px;color:var(--muted);line-height:1.7}
+.strength .est{display:flex;align-items:center;gap:12px;margin:13px 0 4px;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:12px;padding:12px 16px}
+.strength .est .n{font-size:34px;font-weight:900;color:var(--orange-2);line-height:1;white-space:nowrap}
+.strength .est .n span{font-size:.45em;color:#fff}
+.strength .est .t{font-size:12.5px;line-height:1.5}
+.strength .est .t b{font-size:14px}
+.strength ul{list-style:none;margin-top:11px;display:grid;gap:9px}
+.strength li{display:flex;gap:11px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 14px}
+.strength li .ic{flex:0 0 30px;height:30px;border-radius:8px;background:rgba(240,120,0,.12);color:var(--orange);display:grid;place-items:center;font-size:16px;font-weight:800}
+.strength li .tx b{display:block;font-size:13.5px;color:var(--navy);font-weight:800;margin-bottom:2px}
+.strength li .tx span{font-size:11px;color:var(--muted);line-height:1.55}
+
+/* ---------- LEASE INTRO (komikomi) ---------- */
+.intro{background:var(--paper-2)}
+.intro .hero{background:linear-gradient(135deg,var(--orange-2),var(--orange));color:#fff;border-radius:13px;padding:14px 16px;text-align:center}
+.intro .hero .t{font-size:13px;font-weight:700;letter-spacing:.05em}
+.intro .hero .big{font-size:clamp(22px,6vmin,32px);font-weight:900;line-height:1.1;margin-top:4px}
+.intro .hero .big em{font-style:normal;color:#fff200}
+.intro .hero .from{display:inline-flex;align-items:baseline;gap:3px;background:#fff;color:var(--red);border-radius:9px;padding:4px 12px;margin-top:9px;font-weight:900}
+.intro .hero .from .n{font-size:26px}
+.intro .hero .from .u{font-size:11px;color:var(--muted)}
+.intro .komi{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:13px}
+.intro .komi .c{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 4px;text-align:center}
+.intro .komi .c .ic{font-size:18px}
+.intro .komi .c b{display:block;font-size:11px;color:var(--navy);margin-top:3px;font-weight:800}
+.intro .desc{margin-top:13px;font-size:12px;color:var(--ink);line-height:1.85}
+.intro .desc b{color:var(--orange)}
+
+/* ---------- PAYMENT / PLANS OVERVIEW ---------- */
+.pay{background:var(--paper-2)}
+.pay .methods{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:2px}
+.pay .m{background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 8px;text-align:center}
+.pay .m.on{border-color:var(--orange);box-shadow:0 4px 14px rgba(240,120,0,.18)}
+.pay .m .ic{font-size:19px}
+.pay .m b{display:block;font-size:12.5px;color:var(--navy);margin-top:4px}
+.pay .m span{font-size:9.5px;color:var(--muted)}
+.pay .m .rec{display:inline-block;margin-top:4px;background:var(--orange);color:#fff;font-size:9px;font-weight:800;padding:1px 7px;border-radius:999px}
+.pay .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}
+.pay .plan{border:1px solid var(--line);border-radius:11px;padding:11px 7px;text-align:center;background:#fff}
+.pay .plan .pt{font-size:10px;color:#fff;font-weight:800;padding:2px 9px;border-radius:999px;display:inline-block}
+.pay .plan.p1 .pt{background:var(--orange)} .pay .plan.p2 .pt{background:var(--pink)} .pay .plan.p3 .pt{background:var(--blue)}
+.pay .plan .pn{font-size:10px;color:var(--muted);font-weight:700;margin-top:5px}
+.pay .plan .pm{font-size:19px;font-weight:900;color:var(--red);margin-top:2px;line-height:1.05}
+.pay .plan .pm small{font-size:10px;color:var(--muted);font-weight:700}
+.pay .end{margin-top:12px;font-size:11px;color:var(--muted);line-height:1.65}
+.pay .end b{color:var(--navy)}
+.pay .four{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pay .four span{font-size:10.5px;font-weight:700;color:var(--navy);background:rgba(240,120,0,.1);border:1px solid rgba(240,120,0,.25);border-radius:999px;padding:4px 10px}
+
+/* ---------- PLAN (cars grid) ---------- */
+.planpg{background:var(--paper)}
+.planpg .phead{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.planpg .pl{display:flex;align-items:center;gap:9px}
+.planpg .ptag{font-size:11px;font-weight:900;color:#fff;padding:4px 12px;border-radius:999px;letter-spacing:.04em}
+.planpg.p1 .ptag{background:var(--orange)} .planpg.p2 .ptag{background:var(--pink)} .planpg.p3 .ptag{background:var(--blue)}
+.planpg .pcat{font-size:13px;font-weight:800;color:var(--navy)}
+.planpg .pprice{display:flex;align-items:baseline;gap:2px;font-weight:900}
+.planpg .pprice .pm{font-size:23px;color:var(--red)}
+.planpg .pprice .u{font-size:10.5px;color:var(--muted);font-weight:700}
+.planpg .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;flex:1}
+.planpg .car{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;min-height:0}
+.planpg .car .ph{flex:1;min-height:0;background:linear-gradient(180deg,#f4f6fa,#eef1f6);display:grid;place-items:center;padding:5px}
+.planpg .car .ph img{width:100%;height:100%;object-fit:contain}
+.planpg .car .cap{padding:5px 7px 7px;text-align:center}
+.planpg .car .cap b{display:block;font-size:11.5px;color:var(--navy);font-weight:800;line-height:1.2}
+.planpg .car .cap span{font-size:9px;color:var(--muted)}
+
+/* ---------- PACKS ---------- */
+.packs{background:var(--paper-2)}
+.packs .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px}
+.packs .pk{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.packs .pk .hd{padding:10px 13px;color:#fff}
+.packs .pk.a .hd{background:linear-gradient(135deg,var(--orange-2),var(--orange))}
+.packs .pk.b .hd{background:linear-gradient(135deg,#34c3e8,#0a7fb0)}
+.packs .pk .hd .tg{display:inline-block;background:rgba(255,255,255,.25);font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:999px;margin-bottom:3px}
+.packs .pk .hd h3{font-size:15px;font-weight:900}
+.packs .pk .hd p{font-size:10px;opacity:.95}
+.packs .pk ul{list-style:none;padding:9px 12px;flex:1;display:grid;gap:4px}
+.packs .pk li{font-size:10.5px;color:var(--ink);padding-left:15px;position:relative;line-height:1.4}
+.packs .pk li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:900}
+.packs .pk.b li::before{color:var(--blue)}
+.packs .pk .pr{padding:8px 12px 11px;text-align:center;background:var(--paper-2)}
+.packs .pk .pr .pm{font-size:17px;font-weight:900;color:var(--orange)}
+.packs .pk.b .pr .pm{color:#0a7fb0}
+.packs .pk .pr small{font-size:9.5px;color:var(--muted)}
+.packs .w{margin-top:10px;background:var(--navy);color:#fff;border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:11px}
+.packs .w .pl{font-weight:900;font-size:15px;background:var(--orange);padding:4px 10px;border-radius:8px;white-space:nowrap}
+.packs .w p{font-size:11px;line-height:1.5}.packs .w b{color:var(--orange-2)}
+
+/* ---------- ABOUT (mechanism + 4 choices) ---------- */
+.about{background:var(--paper-2)}
+.about .lead{font-size:12px;color:var(--ink);line-height:1.85;margin-top:2px}
+.about .lead b{color:var(--orange)}
+.about .h3{font-size:12.5px;font-weight:800;color:var(--orange);letter-spacing:.06em;margin:14px 0 9px}
+.about .four{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.about .ch{background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 12px;position:relative}
+.about .ch .no{position:absolute;top:-7px;left:11px;width:22px;height:22px;background:var(--orange);color:#fff;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:11px}
+.about .ch b{display:block;font-size:12.5px;color:var(--navy);font-weight:800;margin:6px 0 3px}
+.about .ch span{font-size:10.5px;color:var(--muted);line-height:1.55}
+
+/* ---------- COMPARE ---------- */
+.compare{background:var(--paper-2)}
+.compare table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:11px;overflow:hidden;margin-top:2px}
+.compare th,.compare td{padding:8px 7px;text-align:center;border-bottom:1px solid var(--line);font-size:10px;vertical-align:middle}
+.compare thead th{background:#f3f5f9;font-weight:800;color:var(--navy);font-size:11px}
+.compare thead th.us{background:var(--orange);color:#fff}
+.compare thead th small{display:block;font-weight:600;font-size:8px;opacity:.9}
+.compare .rh{background:#fbe9d4;color:var(--orange);font-weight:800;width:62px;font-size:10px}
+.compare td.us{background:#fff6e9}
+.compare td b{display:block;color:var(--navy);margin-bottom:2px;font-size:10.5px}
+.compare td.us b{color:var(--orange)}
+.compare td small{display:block;color:var(--muted);font-size:8.5px;line-height:1.4;font-weight:500}
+.compare tr:last-child td,.compare tr:last-child th{border-bottom:none}
+
+/* ---------- VOICES ---------- */
+.voices{background:var(--paper-2)}
+.voices .grid{display:grid;gap:9px;margin-top:2px;flex:1;align-content:center}
+.voices .v{background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 14px;position:relative}
+.voices .v p{font-size:12px;color:var(--ink);font-weight:600;line-height:1.6}
+.voices .v cite{display:block;text-align:right;margin-top:5px;font-style:normal;font-size:10.5px;color:var(--orange);font-weight:800}
+.voices .v::before{content:"“";position:absolute;top:-2px;left:6px;font-family:Georgia,serif;font-size:30px;color:var(--orange);opacity:.2}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--paper-2)}
+.faq .list{display:grid;gap:8px;margin-top:2px;flex:1;align-content:start}
+.faq .qa{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.faq .q{display:flex;gap:8px;font-size:12px;font-weight:800;color:var(--navy);line-height:1.4}
+.faq .q .qi{flex:0 0 18px;height:18px;background:var(--orange);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:900}
+.faq .a{display:flex;gap:8px;font-size:11px;color:var(--muted);line-height:1.55;margin-top:5px}
+.faq .a .ai{flex:0 0 18px;height:18px;background:var(--navy);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:900}
+
+/* ---------- CSY divider ---------- */
+.csyp{background:radial-gradient(620px 460px at 70% 30%,rgba(240,120,0,.14),transparent 62%),linear-gradient(150deg,var(--navy),var(--navy-2));color:#fff;align-items:center;justify-content:center;text-align:center}
+.csyp .csy{font-family:Georgia,serif;font-style:italic;font-weight:800;font-size:clamp(38px,11vmin,60px);line-height:1}
+.csyp .csb{font-size:11px;letter-spacing:.3em;color:var(--orange-2);font-weight:700;margin-top:10px}
+.csyp .ln{margin-top:18px;font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.62)}
+
+/* ---------- STORES ---------- */
+.stores{background:var(--paper-2)}
+.stores .shead{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.stores .shead .t{font-size:clamp(16px,3.6vmin,21px);font-weight:800;color:var(--navy)}
+.stores .shead .ix{font-size:11px;color:var(--orange);font-weight:800;letter-spacing:.1em}
+.stores .list{display:flex;flex-direction:column;gap:6px;flex:1;justify-content:center}
+.store{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.store .nm{font-size:12.5px;font-weight:800;color:var(--navy);line-height:1.25}
+.store .ad{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.4}
+.store .row{display:flex;align-items:center;gap:9px;margin-top:6px;flex-wrap:wrap}
+.store .tel{font-size:12.5px;font-weight:800;color:var(--ink);letter-spacing:.02em}
+.store .tel b{color:var(--orange);font-size:9px;margin-right:5px;letter-spacing:.06em;font-weight:800}
+.store .lp{margin-left:auto;font-size:10.5px;font-weight:800;color:#fff;background:var(--orange);padding:6px 12px;border-radius:999px}
+.stores .sfoot{margin-top:8px;text-align:center;color:var(--muted);font-size:10px;line-height:1.6}
+.stores .sfoot .csy{font-family:Georgia,serif;font-style:italic;font-weight:800;font-size:18px;color:var(--navy)}
+
+/* ---------- COMPANY ---------- */
+.company{background:var(--paper-2)}
+.company .ctbl{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff;margin-top:2px}
+.company .ctbl .r{display:flex;border-bottom:1px solid var(--line)}
+.company .ctbl .r:last-child{border-bottom:none}
+.company .ctbl .k{flex:0 0 33%;background:#f3f5f9;color:var(--navy);font-size:10.5px;font-weight:800;letter-spacing:.04em;padding:9px 11px;display:flex;align-items:center}
+.company .ctbl .v{flex:1;font-size:11px;color:var(--ink);padding:9px 12px;line-height:1.5;font-weight:600}
+.company .note{margin-top:9px;font-size:10px;color:var(--muted);line-height:1.6}
+.company .phil{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:12px;padding:13px 15px;margin-top:2px}
+.company .phil .lb{font-size:10px;letter-spacing:.2em;color:var(--orange-2);font-weight:800}
+.company .phil .mn{font-size:13.5px;font-weight:800;line-height:1.5;margin-top:5px}
+.company .phil .vi{font-size:11px;color:rgba(255,255,255,.82);line-height:1.6;margin-top:7px}
+.company .htitle{font-size:11px;font-weight:800;color:var(--orange);letter-spacing:.1em;margin:13px 0 7px}
+.company .hist{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+.company .hist .h{position:relative;padding:0 0 10px 16px}
+.company .hist .h:last-child{padding-bottom:0}
+.company .hist .h::before{content:"";position:absolute;left:-5px;top:4px;width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.company .hist .y{font-size:11px;font-weight:800;color:var(--navy)}
+.company .hist .e{font-size:10.5px;color:var(--muted);line-height:1.5}
+
+/* ---------- PRESIDENT ---------- */
+.pres{background:var(--paper)}
+.pres .pphoto{flex:0 0 auto;height:36%;border-radius:12px;overflow:hidden;background:#eef1f6;display:grid;place-items:center;margin-top:2px}
+.pres .pphoto img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.pres .ptitle{font-size:10.5px;letter-spacing:.2em;color:var(--orange);font-weight:800;margin-top:13px}
+.pres h2{font-size:clamp(16px,3.8vmin,21px);color:var(--navy);font-weight:800;margin-top:5px;line-height:1.4}
+.pres .msg{margin-top:10px;font-size:11.5px;color:var(--ink);line-height:1.85}
+.pres .sign{margin-top:auto;padding-top:10px;display:flex;align-items:baseline;gap:10px;justify-content:flex-end}
+.pres .sign .ro{font-size:11px;color:var(--muted)}
+.pres .sign .nm{font-size:16px;font-weight:800;color:var(--navy);letter-spacing:.08em}
+
+/* ---------- back cover ---------- */
+.backc{background:radial-gradient(620px 460px at 50% 22%,rgba(240,120,0,.18),transparent 60%),linear-gradient(150deg,var(--navy),var(--navy-2));color:#fff;align-items:center;justify-content:center;text-align:center}
+.backc .csy{font-family:Georgia,serif;font-style:italic;font-weight:800;font-size:30px;color:rgba(255,255,255,.85)}
+.backc h2{font-size:clamp(20px,5vmin,28px);font-weight:900;margin-top:14px;line-height:1.3}
+.backc h2 em{font-style:normal;color:var(--orange-2)}
+.backc .tel{margin-top:16px;font-size:13px;color:rgba(255,255,255,.7)}
+.backc .tel .n{display:block;font-size:30px;font-weight:900;color:#fff;letter-spacing:.03em;margin-top:3px}
+.backc .small{margin-top:14px;font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.7}
+
+/* ---------- controls ---------- */
+.controls{display:flex;align-items:center;gap:18px;color:#fff;position:relative;z-index:9999}
+.nav{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:19px;cursor:pointer;display:grid;place-items:center;transition:.2s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.nav:hover:not(:disabled){background:var(--orange);border-color:var(--orange)}
+.nav:disabled{opacity:.3;cursor:default}
+.counter{font-size:13px;letter-spacing:.06em;min-width:230px;text-align:center;color:rgba(255,255,255,.88)}
+.counter b{color:var(--orange-2)}
+.counter .ttl{display:block;font-size:11px;color:rgba(255,255,255,.55);margin-top:3px;letter-spacing:.02em}
+.hint-swipe{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.06em;text-align:center}
+</style>
 </head>
 <body>
-
-<!-- ===== Header ===== -->
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="brand">
-      <span class="brand-company">カーサービス山形</span>
-      <span class="brand-logo">にこっと乗るだけ<span class="seven">7</span></span>
+  <div class="appbar">
+    <div class="logo">
+      <div class="csy">CSY</div>
+      <div class="sub">CAR<br>SERVICE<br>YAMAGATA</div>
     </div>
-    <nav class="header-nav">
-      <a href="#plans">料金プラン</a>
-      <a href="#about">リースとは</a>
-      <a href="#faq">よくある質問</a>
-      <a href="#stores">店舗</a>
-    </nav>
-    <a href="tel:023-631-3711" class="header-tel">
-      <span class="header-tel-label">お問い合わせ</span>
-      <span class="header-tel-num">023-631-3711</span>
-    </a>
+    <div class="tag">受付 9:30〜18:00 ／ 定休 火・水<br><b>創業47年</b>・クルマ選びの終着駅</div>
   </div>
-</header>
-
-<!-- ===== Hero ===== -->
-<section class="hero">
-  <div class="container hero-inner">
-    <div class="hero-badges">
-      <span class="hero-badge">車両代コミ</span>
-      <span class="hero-badge">自動車税コミ</span>
-      <span class="hero-badge">車検代コミ</span>
-      <span class="hero-badge">メンテ費用コミ</span>
-      <span class="hero-badge">ロードサービスコミ</span>
+  <div class="stage">
+    <div class="viewport" id="viewport">
+      <div class="book" id="book"></div>
     </div>
-    <h1 class="hero-title">
-      <span class="hero-sub">新車の軽自動車4WDを</span>
-      <span class="hero-main">月々<em>定額</em></span>
-      <span class="hero-allin">すべて コミコミ！</span>
-    </h1>
-    <p class="hero-lead">
-      面倒な支払いはぜんぶ「にこっと乗るだけ」。<br>
-      新車の4WD軽自動車に、月々定額で気軽に乗れます。
-    </p>
-    <div class="hero-from">
-      <span>月々</span><strong>11,000</strong><span>円〜<small>（税込）</small></span>
-    </div>
-    <div class="hero-cta">
-      <a href="#plans" class="btn btn-primary">料金プランを見る</a>
-      <a href="#contact" class="btn btn-line">LINEでカンタン相談</a>
-    </div>
-    <div class="hero-trust">
-      <div class="trust-item"><strong>8年連続</strong><span>販売台数 No.1<small>※</small></span></div>
-      <div class="trust-item"><strong>頭金0円</strong><span>からOK</span></div>
-      <div class="trust-item"><strong>オールメーカー</strong><span>軽も普通車も対応</span></div>
-    </div>
-    <p class="hero-note">※山形県内 軽自動車4WDカーリース 当社調べ</p>
-  </div>
-</section>
-
-<!-- ===== コミコミ説明 ===== -->
-<section class="allin">
-  <div class="container">
-    <h2 class="sec-title">月々のお支払いに、これ全部コミコミ。</h2>
-    <p class="sec-lead">「いくらかかるの？」がない安心。1台にかかる費用をまるごとパッケージ。</p>
-    <ul class="allin-grid">
-      <li><span class="allin-ico">🚗</span><b>車両代</b><small>新車4WD軽自動車</small></li>
-      <li><span class="allin-ico">📄</span><b>自動車税</b><small>毎年の納税も不要</small></li>
-      <li><span class="allin-ico">🔧</span><b>車検代</b><small>まとまった出費なし</small></li>
-      <li><span class="allin-ico">🛠️</span><b>メンテ費用</b><small>点検・オイル交換</small></li>
-      <li><span class="allin-ico">🆘</span><b>ロードサービス</b><small>もしもの時も安心</small></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== Plans ===== -->
-<section id="plans" class="plans">
-  <div class="container">
-    <h2 class="sec-title">月々定額の<span class="hl">料金プラン</span></h2>
-    <p class="sec-lead">ご予算とライフスタイルに合わせて3つのプランからお選びいただけます。<br>全車種 新車・4WD・7年（84回）リースです。</p>
-
-    <!-- Plan 1 -->
-    <div class="plan plan1" id="plan1">
-      <div class="plan-head">
-        <div class="plan-name"><span class="plan-tag">PLAN 1</span><span class="plan-cat">スタンダード</span></div>
-        <div class="plan-price"><span>月々</span><strong>11,000</strong><span>円〜<small>（税込）</small></span></div>
+    <div class="controls">
+      <button class="nav" id="prev" aria-label="前へ">‹</button>
+      <div class="counter"><span id="cur">1</span> <span style="opacity:.4">/</span> <span id="tot">1</span>
+        <span class="ttl" id="ttl">表紙</span>
       </div>
-      <div class="car-grid">
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku1_car1.jpg" alt="ハスラー HYBRID G 4WD"><figcaption><b>ハスラー</b><small>HYBRID G 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku1_car2.jpg" alt="アルト HYBRID S 4WD"><figcaption><b>アルト</b><small>HYBRID S 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku1_car3.jpg" alt="ミライース X SAIII 4WD"><figcaption><b>ミライース</b><small>X SAIII 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku1_car4.jpg" alt="アルトラパン G 4WD"><figcaption><b>アルトラパン</b><small>G 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku1_car5.jpg" alt="エヴリィバン JOIN 4WD"><figcaption><b>エヴリィバン</b><small>JOIN 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku1_car6.jpg" alt="ハイゼットトラック 4WD"><figcaption><b>ハイゼットトラック</b><small>4WD</small></figcaption></figure>
-      </div>
+      <button class="nav" id="next" aria-label="次へ">›</button>
     </div>
-
-    <!-- Plan 2 -->
-    <div class="plan plan2" id="plan2">
-      <div class="plan-head">
-        <div class="plan-name"><span class="plan-tag">PLAN 2</span><span class="plan-cat">人気の広々モデル</span></div>
-        <div class="plan-price"><span>月々</span><strong>13,200</strong><span>円〜<small>（税込）</small></span></div>
-      </div>
-      <div class="car-grid">
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku2_car1.jpg" alt="ムーヴキャンバス ストライプス G 4WD"><figcaption><b>ムーヴキャンバス</b><small>ストライプス G 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku2_car2.jpg" alt="ワゴンR スマイル HYBRID S 4WD"><figcaption><b>ワゴンR スマイル</b><small>HYBRID S 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku2_car3.jpg" alt="N-BOX 4WD"><figcaption><b>N-BOX</b><small>4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku2_car4.jpg" alt="スペーシア HYBRID G 4WD"><figcaption><b>スペーシア</b><small>HYBRID G 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku2_car5.jpg" alt="タント L 4WD"><figcaption><b>タント</b><small>L 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku2_car6.jpg" alt="タフト G 4WD"><figcaption><b>タフト</b><small>G 4WD</small></figcaption></figure>
-      </div>
-    </div>
-
-    <!-- Plan 3 -->
-    <div class="plan plan3" id="plan3">
-      <div class="plan-head">
-        <div class="plan-name"><span class="plan-tag">PLAN 3</span><span class="plan-cat">ハイグレード・カスタム</span></div>
-        <div class="plan-price"><span>月々</span><strong>16,200</strong><span>円〜<small>（税込）</small></span></div>
-      </div>
-      <div class="car-grid">
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku3_car1.jpg" alt="スペーシアカスタム HYBRID XS 4WD"><figcaption><b>スペーシアカスタム</b><small>HYBRID XS 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku3_car2.jpg" alt="タントカスタム HYBRID S 4WD"><figcaption><b>タントカスタム</b><small>HYBRID S 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku3_car3.jpg" alt="N-BOX CUSTOM 4WD"><figcaption><b>N-BOX CUSTOM</b><small>4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku3_car4.jpg" alt="スペーシアギア HYBRID XZ 4WD"><figcaption><b>スペーシアギア</b><small>HYBRID XZ 4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku3_car5.jpg" alt="タントファンクロス 4WD"><figcaption><b>タントファンクロス</b><small>4WD</small></figcaption></figure>
-        <figure class="car"><img loading="lazy" src="assets/cars/teigaku3_car6.jpg" alt="ジムニー XC 4WD"><figcaption><b>ジムニー</b><small>XC 4WD</small></figcaption></figure>
-      </div>
-    </div>
-
-    <p class="plans-note">※表示は月額（税込）の最低価格です。車種・グレード・ボーナス加算の有無により異なります。<br>※ボーナス月加算プランあり（例：加算66,000円×14回）。詳しくは店頭・LINEにてお見積りいたします。</p>
+    <div class="hint-swipe">← → キー ／ スワイプ ／ 画面の左右・ボタンでめくる</div>
   </div>
-</section>
 
-<!-- ===== Option Packs ===== -->
-<section id="packs" class="packs">
-  <div class="container">
-    <h2 class="sec-title">にこっと<span class="hl">お得なパックプラン</span></h2>
-    <p class="sec-lead">月額にプラスするだけで、もっと安心・もっと快適に。</p>
-    <div class="pack-grid">
-      <div class="pack packA">
-        <div class="pack-head"><span class="pack-tag">PLAN A</span><h3>メンテナンスパック</h3><p>セレクトまとメンテ</p></div>
-        <ul class="pack-list">
-          <li>スケジュール点検 7回</li>
-          <li>法定点検 4回</li>
-          <li>エンジンオイル交換 13回</li>
-          <li>オイルエレメント交換 6回</li>
-          <li>ワイパーゴム交換 1回</li>
-          <li>タイヤローテーション・置き替え 14回</li>
-        </ul>
-        <div class="pack-price"><span>7年リース</span><strong>月々 +2,000円</strong><small>（税込2,200円）</small></div>
-      </div>
-      <div class="pack packB">
-        <div class="pack-head"><span class="pack-tag">PLAN B</span><h3>セーフティーパック</h3><p>装備もまるごと一式</p></div>
-        <ul class="pack-list">
-          <li>ETC</li>
-          <li>ドライブレコーダー</li>
-          <li>スタッドレスタイヤ・アルミセット</li>
-          <li>フロアマット</li>
-          <li>スリーラスター（下回り塗装）</li>
-          <li>KeePerコート</li>
-        </ul>
-        <div class="pack-price"><span>7年リース</span><strong>月々 +4,000円</strong><small>（税込4,400円）</small></div>
-      </div>
-    </div>
-    <div class="pack-w">
-      <span class="pack-w-plus">A＋B</span>
-      <p>メンテナンスもオプションもまとめてプラスでき、もっとお得な<b>「にこっとWパック」</b>もご用意しています。</p>
-    </div>
+<script>
+/* ============ DATA ============ */
+const plans=[
+  {id:"p1",cat:"スタンダード",price:"11,000",cars:[
+    {n:"ハスラー",g:"HYBRID G 4WD",img:"teigaku1_car1"},
+    {n:"アルト",g:"HYBRID S 4WD",img:"teigaku1_car2"},
+    {n:"ミライース",g:"X SAIII 4WD",img:"teigaku1_car3"},
+    {n:"アルトラパン",g:"G 4WD",img:"teigaku1_car4"},
+    {n:"エヴリィバン",g:"JOIN 4WD",img:"teigaku1_car5"},
+    {n:"ハイゼットトラック",g:"4WD",img:"teigaku1_car6"},
+  ]},
+  {id:"p2",cat:"人気の広々モデル",price:"13,200",cars:[
+    {n:"ムーヴキャンバス",g:"ストライプス G 4WD",img:"teigaku2_car1"},
+    {n:"ワゴンR スマイル",g:"HYBRID S 4WD",img:"teigaku2_car2"},
+    {n:"N-BOX",g:"4WD",img:"teigaku2_car3"},
+    {n:"スペーシア",g:"HYBRID G 4WD",img:"teigaku2_car4"},
+    {n:"タント",g:"L 4WD",img:"teigaku2_car5"},
+    {n:"タフト",g:"G 4WD",img:"teigaku2_car6"},
+  ]},
+  {id:"p3",cat:"ハイグレード・カスタム",price:"16,200",cars:[
+    {n:"スペーシアカスタム",g:"HYBRID XS 4WD",img:"teigaku3_car1"},
+    {n:"タントカスタム",g:"HYBRID S 4WD",img:"teigaku3_car2"},
+    {n:"N-BOX CUSTOM",g:"4WD",img:"teigaku3_car3"},
+    {n:"スペーシアギア",g:"HYBRID XZ 4WD",img:"teigaku3_car4"},
+    {n:"タントファンクロス",g:"4WD",img:"teigaku3_car5"},
+    {n:"ジムニー",g:"XC 4WD",img:"teigaku3_car6"},
+  ]},
+];
+const faqs=[
+  {q:"取り扱い車種は？",a:"軽自動車も普通車もオールメーカー対応可能です。お気軽にご相談ください。"},
+  {q:"毎年の自動車税は誰が支払うの？",a:"リース会社が納税しますので、お客様に納税いただく必要はございません。"},
+  {q:"頭金は必要ですか？",a:"頭金は0円からお申込みいただけます。ボーナス払いも可能です。"},
+  {q:"はじめにかかる費用はありますか？",a:"いいえ、ありません。すべてコミコミでご提示する金額でお乗りいただけます。"},
+  {q:"走行距離の制限はあるの？",a:"ご利用状況に応じてリース契約の際に設定します。超過走行分は精算いただきます。"},
+  {q:"「わ」ナンバーになりますか？",a:"通常ご購入時と同様のナンバーになりますので、「わ」ナンバーにはなりません。"},
+  {q:"リースだと割高ではないですか？",a:"いいえ。月々料金は税金やメンテナンス費用込みの設定で、残価設定により月々料金が抑えられます。"},
+  {q:"自動車保険（任意）は含まれますか？",a:"リース契約には含まれません。別途ご加入が必要ですが、保険をリース料に組み込むことも可能です。"},
+  {q:"事故を起こした場合は？",a:"安全に乗り続けるため修理が必要です。まずは当店へご相談ください。リース専用保険もご用意しています。"},
+  {q:"車の改造は可能ですか？",a:"改造はご遠慮いただいております。返却時に原状回復が可能な範囲での装備追加はOKです。"},
+  {q:"途中で解約できますか？",a:"途中解約は可能ですが、中途解約金などが別途必要になる場合があります。店舗にご相談ください。"},
+  {q:"契約満了後、クルマはどうなりますか？",a:"「再リース」「ご自身で買取」「乗り換え」「返却」の4つからお選びいただけます。"},
+];
+const voices=[
+  {p:"4月の自動車税の時期が気にならなくなった。",c:"山形市 K様"},
+  {p:"装備も充実していて、自分でカスタマイズするより気軽に乗れる。",c:"天童市 S様"},
+  {p:"月々定額だから家計のやりくりがしやすい。",c:"山形市 M様"},
+  {p:"車検時にお金を準備することがなく、旅行などに回せるようになった。",c:"東根市 G様"},
+  {p:"メンテナンスパックを利用するとお店がすべて管理してくれて安心。",c:"米沢市 T様"},
+];
+const stores=[
+  {nm:"山形店",ad:"山形13号線沿い、旧ヤマザワバイパス店近く",tel:"023-631-3233",lp:"https://yamagata.cs-yamagata.co.jp/"},
+  {nm:"山形嶋店",ad:"西バイパス沿い、ケーズデンキ山形北本店近く",tel:"023-665-5980",lp:"https://nishi-bypass.cs-yamagata.co.jp/"},
+  {nm:"アップル山形西バイパス店",ad:"西バイパス沿い、南沼原小学校近く",tel:"023-645-7778",lp:"https://apple-nishibypass.cs-yamagata.co.jp/"},
+  {nm:"K-Field山形南店",ad:"山形明正高等学校近く",tel:"023-622-6888",lp:"https://k-field-yamagata.cs-yamagata.co.jp/"},
+  {nm:"CASA DOLCE 天童店",ad:"13号線沿い、ヨークタウン天童そば",tel:"023-666-6550",lp:"https://tendo.cs-yamagata.co.jp/"},
+  {nm:"NCF（にこっとコンプリートファクトリー）",ad:"立谷川の北、13号線から西側",tel:"023-655-5510",lp:"https://ncf.cs-yamagata.co.jp/"},
+  {nm:"庄内ワンダーランド酒田店",ad:"7号線沿い、酒田ICすぐそば",tel:"0234-41-2388",lp:"https://sakata.cs-yamagata.co.jp/"},
+  {nm:"鶴岡店",ad:"332号線沿い、山形スバル鶴岡店様 西側",tel:"0235-26-0200",lp:"https://tsuruoka.cs-yamagata.co.jp/"},
+  {nm:"軽CARリース イオンモール三川店",ad:"イオンモール三川 1階 北側",tel:"080-4655-0492",lp:""},
+  {nm:"本部",ad:"カーサービス山形 本部直通",tel:"023-631-3711",lp:""},
+];
+
+/* ============ PAGE BUILDERS ============ */
+function coverHTML(){return `<div class="pg cover">
+  <div><div class="csy">CSY</div><div class="csb">CAR SERVICE YAMAGATA ／ 創業47年</div></div>
+  <div>
+    <div class="lede">新車の軽自動車4WDを「月々定額」</div>
+    <h1>にこっと<br>乗るだけ<span class="nico">7</span></h1>
+    <div class="sb">すべて コミコミ！</div>
+    <div class="badge"><div class="s">月々</div><div class="b">11,000<span>円〜</span></div><div class="s2">税込</div></div>
   </div>
-</section>
+  <div class="foot">DIGITAL PAMPHLET ／ カーリース<br><span class="hint">▶ ページをめくってご覧ください</span></div>
+</div>`;}
 
-<!-- ===== About lease ===== -->
-<section id="about" class="about">
-  <div class="container">
-    <h2 class="sec-title">月々定額カーリースって何？</h2>
-    <p class="sec-lead">
-      お車の支払いに「毎年の自動車税」「今『車検代』」「車検時の諸経費」などが<br>
-      含まれていて、月々定額で家計に乗れるしくみです。<br>
-      <strong>ずっと定額！毎月フラットなお支払いで家計管理もラクラク。</strong>
-    </p>
+function strengthHTML(){return `<div class="pg strength">
+  <div class="sechead"><div class="k">OUR STRENGTH</div><h2>カーサービス山形の強み</h2><div class="bar"></div></div>
+  <div class="lead">「クルマ選びの終着駅」。新車から中古車まで、地域のカーライフをまるごと支えます。</div>
+  <div class="est"><div class="n">47<span>年</span></div><div class="t"><b>創業47年の信頼と実績。</b><br>山形で積み重ねた安心を、一台ごとに。</div></div>
+  <ul>
+    <li><span class="ic">◎</span><span class="tx"><b>豊富な在庫・中古車もご用意可能</b><span>新車・未使用車・中古車から最適な一台をご提案します。</span></span></li>
+    <li><span class="ic">⌂</span><span class="tx"><b>山形県内10拠点・地域密着</b><span>お近くの店舗で、購入後もずっとサポート。</span></span></li>
+    <li><span class="ic">✚</span><span class="tx"><b>購入後もワンストップ</b><span>車検・点検・板金・買取・カーリース・保険まで対応。</span></span></li>
+  </ul>
+  <div class="pgfoot"><span>CAR SERVICE YAMAGATA</span><span class="b">CSY</span></div>
+</div>`;}
 
-    <div class="about-merits">
-      <h3 class="about-h3">リース満了7年に選べる<span class="hl">4つの選択肢</span></h3>
-      <div class="merit-grid">
-        <div class="merit"><span class="merit-no">1</span><b>新しいクルマに乗り換え</b><small>満了時に新車へ。気分も新たに、また定額で。</small></div>
-        <div class="merit"><span class="merit-no">2</span><b>同じクルマに乗り続ける</b><small>再リースで、慣れたクルマにそのまま。</small></div>
-        <div class="merit"><span class="merit-no">3</span><b>お客様ご自身で買取</b><small>残価をお支払いいただき、そのまま自分の車に。</small></div>
-        <div class="merit"><span class="merit-no">4</span><b>クルマを返却</b><small>乗り換え予定がなければ返すだけ。手間いらず。</small></div>
-      </div>
-    </div>
+function introHTML(){return `<div class="pg intro">
+  <div class="sechead"><div class="k">WHAT'S NICOTTO 7</div><h2>にこっと乗るだけ7 とは？</h2><div class="bar"></div></div>
+  <div class="hero">
+    <div class="t">新車の4WD軽自動車に、面倒な支払いなしで。</div>
+    <div class="big">月々<em>定額</em>・すべてコミコミ</div>
+    <div class="from"><span>月々</span><span class="n">11,000</span><span class="u">円〜（税込）</span></div>
   </div>
-</section>
-
-<!-- ===== Comparison ===== -->
-<section class="compare">
-  <div class="container">
-    <h2 class="sec-title">他社のカーリースと<span class="hl">比較してもお得！</span></h2>
-    <div class="compare-scroll">
-      <table class="compare-table">
-        <thead>
-          <tr><th class="rowhead"></th><th class="us">当社<br><small>にこっと乗るだけ7</small></th><th>O社</th><th>T社</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th class="rowhead">契約期間</th>
-            <td class="us"><b>1年〜7年で自由に設定可能</b><small>7年プランを推奨</small></td>
-            <td>7年プランのみ</td>
-            <td>3年・5年・7年から選択</td>
-          </tr>
-          <tr>
-            <th class="rowhead">残価設定</th>
-            <td class="us"><b>残価が明瞭なオープンエンド方式！</b><small>車種・グレード・想定走行距離に応じ残価を設定。満了時お客様での買取OK</small></td>
-            <td>オープンエンド方式<small>満了時お客様での買取OK</small></td>
-            <td>クローズドエンド方式<small>月間走行1,500kmルール有り。超過分は精算発生。満了時の買取NG</small></td>
-          </tr>
-          <tr>
-            <th class="rowhead">中途解約</th>
-            <td class="us"><b>中途解約金有り</b><small>お客様での車の買取もOK</small></td>
-            <td>中途解約金有り<small>お客様での車の買取もOK</small></td>
-            <td>解約金フリープラン有り<small>お客様での車の買取はNG</small></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="komi">
+    <div class="c"><div class="ic">🚗</div><b>車両代</b></div>
+    <div class="c"><div class="ic">📄</div><b>自動車税</b></div>
+    <div class="c"><div class="ic">🔧</div><b>車検代</b></div>
+    <div class="c"><div class="ic">🛠️</div><b>メンテ費</b></div>
+    <div class="c"><div class="ic">🆘</div><b>ロードS</b></div>
   </div>
-</section>
+  <div class="desc">お車にかかる「毎年の自動車税」「車検代」「メンテナンス費用」などをすべて月額に含めた、<b>月々フラットなお支払い</b>のしくみです。「いくらかかるの？」がなく、家計管理もラクラク。新車に気軽に乗りはじめられます。</div>
+  <div class="pgfoot"><span>すべてコミコミ・頭金0円からOK</span><span class="b">CSY</span></div>
+</div>`;}
 
-<!-- ===== Voices ===== -->
-<section class="voices">
-  <div class="container">
-    <h2 class="sec-title">お客様の声</h2>
-    <div class="voice-grid">
-      <blockquote class="voice"><p>4月の自動車税の時期が気にならなくなった。</p><cite>山形市 K様</cite></blockquote>
-      <blockquote class="voice"><p>装備も充実していて、自分でカスタマイズするより気軽に乗れる。</p><cite>天童市 S様</cite></blockquote>
-      <blockquote class="voice"><p>月々定額だから家計のやりくりがしやすい。</p><cite>山形市 M様</cite></blockquote>
-      <blockquote class="voice"><p>車検時にお金を準備することがなく、旅行などに回せるようになった。</p><cite>東根市 G様</cite></blockquote>
-      <blockquote class="voice"><p>メンテナンスパックを利用するとお店がすべて管理してくれて安心。</p><cite>米沢市 T様</cite></blockquote>
-    </div>
+function payHTML(){return `<div class="pg pay">
+  <div class="sechead"><div class="k">PAYMENT & PLANS</div><h2>お支払い方法と料金プラン</h2><div class="bar"></div></div>
+  <div class="methods">
+    <div class="m"><div class="ic">💴</div><b>現金一括</b><span>シンプルでお得</span></div>
+    <div class="m"><div class="ic">📝</div><b>オートローン</b><span>分割でご購入</span></div>
+    <div class="m on"><div class="ic">🚙</div><b>カーリース</b><span>月々定額・頭金0円</span><div class="rec">おすすめ</div></div>
   </div>
-</section>
+  <div class="plans">
+    <div class="plan p1"><span class="pt">PLAN 1</span><div class="pn">スタンダード</div><div class="pm">11,000<small>円〜</small></div></div>
+    <div class="plan p2"><span class="pt">PLAN 2</span><div class="pn">広々モデル</div><div class="pm">13,200<small>円〜</small></div></div>
+    <div class="plan p3"><span class="pt">PLAN 3</span><div class="pn">カスタム</div><div class="pm">16,200<small>円〜</small></div></div>
+  </div>
+  <div class="end"><b>満了時は次の4つから選べます。</b></div>
+  <div class="four"><span>① 再リース</span><span>② ご自身で買取</span><span>③ 乗り換え</span><span>④ 返却</span></div>
+  <div class="end" style="margin-top:9px">※全車種 新車・4WD・7年（84回）リース。月額は税込・最低価格。ボーナス加算併用例（加算66,000円×14回）あり。任意保険は別途（月額に組込可）。</div>
+  <div class="pgfoot"><span>CAR LEASE</span><span class="b">CSY</span></div>
+</div>`;}
 
-<!-- ===== FAQ ===== -->
-<section id="faq" class="faq">
-  <div class="container">
-    <h2 class="sec-title">よくある<span class="hl">質問</span></h2>
-    <div class="faq-list">
-      <details><summary>取り扱い車種は？</summary><div>軽自動車も普通車もオールメーカー対応可能です。お気軽にご相談ください。</div></details>
-      <details><summary>リース車両の所有者と使用者は？</summary><div>所有者がリース会社、使用者がご契約者様となります。</div></details>
-      <details><summary>毎年の自動車税は誰が支払うの？</summary><div>リース会社が納税しますので、お客様に納税いただく必要はございません。</div></details>
-      <details><summary>走行距離の制限はあるの？</summary><div>ご利用状況に応じてリース契約の際に設定します。超過走行分は精算いただきます。</div></details>
-      <details><summary>車の改造は可能ですか？</summary><div>お車の改造はご遠慮いただいております。返却時に原状回復が可能な範囲での装備品の追加はOKです。</div></details>
-      <details><summary>「わ」ナンバーになりますか？</summary><div>通常ご購入いただいた際のナンバーと同様になりますので、「わ」ナンバーにはなりません。</div></details>
-      <details><summary>自動車保険（任意）は含まれていますか？</summary><div>リース契約には含まれておりません。別途ご加入いただく必要があります。保険をリース料に含めることも可能です。</div></details>
-      <details><summary>事故を起こした場合は？</summary><div>安全に乗り続けるために修理が必要です。まずは当店へご相談ください。キズの放置は最終回査定に影響する可能性があります。リース専用保険もご用意しております。</div></details>
-      <details><summary>頭金は必要ですか？</summary><div>頭金は0円からお申込みいただけます。ボーナス払いも可能です。</div></details>
-      <details><summary>リースだと割高ではないですか？</summary><div>いいえ。月々料金は契約期間中の税金やメンテナンス費用が含まれた設定です。残価設定により月々料金が抑えられます。</div></details>
-      <details><summary>契約満了後、クルマはどうなりますか？</summary><div>「再リース」「ご自身で買取」「新しいクルマに乗り換え」「返却」の4つの方法からお選びいただけます。</div></details>
-      <details><summary>途中で解約できますか？</summary><div>途中解約は可能ですが、中途解約金などが別途必要になる場合があります。販売店にご相談ください。</div></details>
-      <details><summary>はじめにかかる費用はありますか？</summary><div>いいえ、ありません。すべてコミコミでご提示する金額でお乗りいただけます。</div></details>
+function planHTML(pl,i){
+  const cars=pl.cars.map(c=>`<div class="car"><div class="ph"><img loading="lazy" src="assets/cars/${c.img}.jpg" alt="${c.n} ${c.g}"></div><div class="cap"><b>${c.n}</b><span>${c.g}</span></div></div>`).join('');
+  return `<div class="pg planpg ${pl.id}">
+    <div class="phead">
+      <div class="pl"><span class="ptag">PLAN ${i+1}</span><span class="pcat">${pl.cat}</span></div>
+      <div class="pprice"><span class="u">月々</span><span class="pm">${pl.price}</span><span class="u">円〜（税込）</span></div>
+    </div>
+    <div class="grid">${cars}</div>
+    <div class="pgfoot"><span>新車・4WD・7年リース／全6車種</span><span class="b">CSY</span></div>
+  </div>`;}
+
+function packsHTML(){return `<div class="pg packs">
+  <div class="sechead"><div class="k">OPTION PACK</div><h2>にこっと お得なパックプラン</h2><div class="bar"></div></div>
+  <div class="row">
+    <div class="pk a">
+      <div class="hd"><span class="tg">PLAN A</span><h3>メンテナンスパック</h3><p>セレクトまとメンテ</p></div>
+      <ul>
+        <li>スケジュール点検 7回</li><li>法定点検 4回</li>
+        <li>エンジンオイル交換 13回</li><li>オイルエレメント交換 6回</li>
+        <li>ワイパーゴム交換 1回</li><li>タイヤローテーション・置き替え 14回</li>
+      </ul>
+      <div class="pr"><div class="pm">月々 +2,000円</div><small>（税込2,200円）</small></div>
+    </div>
+    <div class="pk b">
+      <div class="hd"><span class="tg">PLAN B</span><h3>セーフティーパック</h3><p>装備もまるごと一式</p></div>
+      <ul>
+        <li>ETC</li><li>ドライブレコーダー</li>
+        <li>スタッドレスタイヤ・アルミセット</li><li>フロアマット</li>
+        <li>スリーラスター（下回り塗装）</li><li>KeePerコート</li>
+      </ul>
+      <div class="pr"><div class="pm">月々 +4,000円</div><small>（税込4,400円）</small></div>
     </div>
   </div>
-</section>
+  <div class="w"><span class="pl">A＋B</span><p>メンテもオプションもまとめてプラスできる、もっとお得な<b>「にこっとWパック」</b>もご用意しています。</p></div>
+  <div class="pgfoot"><span>月額にプラスで、もっと安心・快適に</span><span class="b">CSY</span></div>
+</div>`;}
 
-<!-- ===== Contact ===== -->
-<section id="contact" class="contact">
-  <div class="container">
-    <h2 class="contact-title">お問い合わせ・ご来店予約</h2>
-    <p class="contact-lead">LINEで簡単にお問い合わせ・来店予約ができます。気になる車種のお見積りもお気軽に！</p>
-    <div class="contact-cta">
-      <a href="tel:023-631-3711" class="btn btn-tel"><span>お電話はこちら</span><strong>023-631-3711</strong></a>
-      <a href="https://www.csy-event-j.com/carlease/index.html" target="_blank" rel="noopener" class="btn btn-line">LINEでカンタン相談はこちら</a>
-    </div>
-    <p class="contact-hours">受付時間 9:00〜18:00（本部）</p>
+function aboutHTML(){return `<div class="pg about">
+  <div class="sechead"><div class="k">HOW IT WORKS</div><h2>カーリースのしくみと満了時</h2><div class="bar"></div></div>
+  <div class="lead">月々の定額に、税金やメンテナンス費用が含まれた<b>残価設定型</b>のカーリース。残価（=満了時の想定価値）を差し引くことで、月々のお支払いを抑えられます。<b>ずっと定額</b>で、家計の見通しも安心です。</div>
+  <div class="h3">リース満了（7年）で選べる4つの選択肢</div>
+  <div class="four">
+    <div class="ch"><span class="no">1</span><b>新しいクルマに乗り換え</b><span>満了時に新車へ。気分も新たに、また定額で。</span></div>
+    <div class="ch"><span class="no">2</span><b>同じクルマに乗り続ける</b><span>再リースで、慣れたクルマにそのまま。</span></div>
+    <div class="ch"><span class="no">3</span><b>ご自身で買取</b><span>残価をお支払いいただき、自分の車に。</span></div>
+    <div class="ch"><span class="no">4</span><b>クルマを返却</b><span>乗り換え予定がなければ返すだけ。</span></div>
   </div>
-</section>
+  <div class="pgfoot"><span>残価設定型オープンエンド方式</span><span class="b">CSY</span></div>
+</div>`;}
 
-<!-- ===== Stores ===== -->
-<section id="stores" class="stores">
-  <div class="container">
-    <h2 class="sec-title">店舗情報</h2>
-    <p class="sec-lead">山形県内に9店舗。お近くの店舗にお気軽にお越しください。</p>
-    <div class="store-grid">
-      <div class="store"><h3>本社・山形店</h3><p class="store-addr">〒990-0004 山形県山形市上山家町字下宿766-6</p><a href="tel:023-631-3233" class="store-tel">023-631-3233</a></div>
-      <div class="store"><h3>山形嶋店</h3><p class="store-addr">〒990-0886 山形県山形市嶋南4丁目1-32</p><a href="tel:023-665-5980" class="store-tel">023-665-5980</a></div>
-      <div class="store"><h3>アップル山形西バイパス店</h3><p class="store-addr">〒990-2464 山形県山形市高堂101-1</p><a href="tel:023-645-7778" class="store-tel">023-645-7778</a></div>
-      <div class="store"><h3>K-Field 山形南店</h3><p class="store-addr">〒990-2422 山形県山形市中桜田1-1-46</p><a href="tel:023-622-6888" class="store-tel">023-622-6888</a></div>
-      <div class="store"><h3>CASA DOLCE 天童店</h3><p class="store-addr">〒994-0013 山形県天童市大字老野森419-6</p><a href="tel:023-666-6550" class="store-tel">023-666-6550</a></div>
-      <div class="store"><h3>NCF</h3><p class="store-addr">〒994-0069 山形県天童市清池東2-1-7</p><a href="tel:023-655-5510" class="store-tel">023-655-5510</a></div>
-      <div class="store"><h3>庄内ワンダーランド酒田店</h3><p class="store-addr">〒998-0104 山形県酒田市広栄町1-1-1</p><a href="tel:0234-41-2388" class="store-tel">0234-41-2388</a></div>
-      <div class="store"><h3>鶴岡店</h3><p class="store-addr">〒997-0045 山形県鶴岡市西新斎町8-50</p><a href="tel:0235-26-0200" class="store-tel">0235-26-0200</a></div>
-      <div class="store"><h3>軽CARリース イオンモール三川店</h3><p class="store-addr">〒997-1316 山形県東田川郡三川町大字猪子字和田庫128-1 イオンモール三川 北側入口1F</p><a href="tel:080-4655-0492" class="store-tel">080-4655-0492</a></div>
-    </div>
+function compareHTML(){return `<div class="pg compare">
+  <div class="sechead"><div class="k">COMPARE</div><h2>他社のカーリースと比較してもお得</h2><div class="bar"></div></div>
+  <table>
+    <thead><tr><th class="rh"></th><th class="us">当社<small>にこっと乗るだけ7</small></th><th>O社</th><th>T社</th></tr></thead>
+    <tbody>
+      <tr><th class="rh">契約期間</th>
+        <td class="us"><b>1〜7年で自由に設定</b><small>7年プランを推奨</small></td>
+        <td>7年プランのみ</td>
+        <td>3年・5年・7年から選択</td></tr>
+      <tr><th class="rh">残価設定</th>
+        <td class="us"><b>明瞭なオープンエンド方式</b><small>満了時の買取OK</small></td>
+        <td>オープンエンド方式<small>満了時の買取OK</small></td>
+        <td>クローズドエンド方式<small>月1,500km制限・超過精算・買取NG</small></td></tr>
+      <tr><th class="rh">中途解約</th>
+        <td class="us"><b>中途解約金有り</b><small>お客様での買取もOK</small></td>
+        <td>中途解約金有り<small>買取もOK</small></td>
+        <td>解約金フリープラン有り<small>買取はNG</small></td></tr>
+    </tbody>
+  </table>
+  <div class="pgfoot"><span>※比較は当社調べ。プランにより異なります。</span><span class="b">CSY</span></div>
+</div>`;}
+
+function voicesHTML(){
+  const v=voices.map(x=>`<div class="v"><p>${x.p}</p><cite>${x.c}</cite></div>`).join('');
+  return `<div class="pg voices">
+    <div class="sechead"><div class="k">CUSTOMER VOICE</div><h2>お客様の声</h2><div class="bar"></div></div>
+    <div class="grid">${v}</div>
+    <div class="pgfoot"><span>たくさんの「にこっと」をいただいています</span><span class="b">CSY</span></div>
+  </div>`;}
+
+function faqHTML(items,part){
+  const list=items.map(f=>`<div class="qa"><div class="q"><span class="qi">Q</span><span>${f.q}</span></div><div class="a"><span class="ai">A</span><span>${f.a}</span></div></div>`).join('');
+  return `<div class="pg faq">
+    <div class="sechead"><div class="k">FAQ ${part}/2</div><h2>よくあるご質問</h2><div class="bar"></div></div>
+    <div class="list">${list}</div>
+    <div class="pgfoot"><span>その他のご質問もお気軽にどうぞ</span><span class="b">CSY</span></div>
+  </div>`;}
+
+function csyHTML(){return `<div class="pg csyp">
+  <div class="csy">CSY</div>
+  <div class="csb">CAR SERVICE YAMAGATA</div>
+  <div class="ln">車のことなら、なんでもおまかせ</div>
+</div>`;}
+
+function storesHTML(items,part){
+  const list=items.map(s=>`<div class="store"><div class="nm">${s.nm}</div><div class="ad">${s.ad}</div><div class="row"><div class="tel"><b>TEL</b>${s.tel}</div>${s.lp?`<a class="lp" href="${s.lp}" target="_blank" rel="noopener">店舗サイト ＞</a>`:``}</div></div>`).join('');
+  const foot = part===2 ? `<div class="sfoot"><div class="csy">CSY</div>株式会社カーサービス山形 ／ 創業47年<br>受付 9:30〜18:00 ・ 定休 火曜・水曜</div>` : `<div class="pgfoot"><span>山形県内 全9店舗・地域密着</span><span class="b">CSY</span></div>`;
+  return `<div class="pg stores">
+    <div class="shead"><span class="t">店舗のご案内</span><span class="ix">${part} / 2</span></div>
+    <div class="list">${list}</div>
+    ${foot}
+  </div>`;}
+
+function companyHTML(){return `<div class="pg company">
+  <div class="sechead"><div class="k">COMPANY</div><h2>会社概要</h2><div class="bar"></div></div>
+  <div class="ctbl">
+    <div class="r"><div class="k">会社名</div><div class="v">株式会社カーサービス山形</div></div>
+    <div class="r"><div class="k">代表者</div><div class="v">代表取締役社長　小川 大輔</div></div>
+    <div class="r"><div class="k">創業</div><div class="v">1978年（昭和53年）／創業47年</div></div>
+    <div class="r"><div class="k">設立</div><div class="v">1984年（昭和59年）株式会社化</div></div>
+    <div class="r"><div class="k">資本金</div><div class="v">4,870万円</div></div>
+    <div class="r"><div class="k">従業員数</div><div class="v">170名</div></div>
+    <div class="r"><div class="k">本社所在地</div><div class="v">山形県山形市上山家町字下宿766-6</div></div>
+    <div class="r"><div class="k">電話</div><div class="v">023-631-3711（本部直通）</div></div>
+    <div class="r"><div class="k">事業内容</div><div class="v">新車・中古車販売／車検・点検／板金塗装／買取／カーリース／自動車保険／レンタカー／カー用品</div></div>
+    <div class="r"><div class="k">店舗数</div><div class="v">山形県内 全9店舗</div></div>
   </div>
-</section>
+  <div class="note">加盟団体：山形県中小企業家同友会・山形商工会議所・山形県倫理法人会・公益社団法人山形法人会</div>
+</div>`;}
 
-<!-- ===== Footer ===== -->
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <span class="brand-logo">にこっと乗るだけ<span class="seven">7</span></span>
-      <p class="footer-company">株式会社カーサービス山形<br>CAR SERVICE YAMAGATA</p>
-      <p class="footer-addr">山形県山形市上山家町字下宿766-6</p>
-      <p class="footer-tel">本部 TEL：<a href="tel:023-631-3711">023-631-3711</a></p>
-    </div>
-    <p class="footer-copy">© CAR SERVICE YAMAGATA. このページはサービス紹介を目的としたデジタルパンフレットです。価格・仕様は変更となる場合があります。</p>
+function historyHTML(){return `<div class="pg company">
+  <div class="sechead"><div class="k">PHILOSOPHY & HISTORY</div><h2>理念と沿革</h2><div class="bar"></div></div>
+  <div class="phil">
+    <div class="lb">経営理念</div>
+    <div class="mn">感動カーサービスでお客様の想いに寄り添い、「にこっと」を創造する。</div>
+    <div class="vi">2030年までに「山形県になくてはならない、地域に必要とされ、愛される企業」へ。— くるま選びの終着駅</div>
   </div>
-</footer>
+  <div class="htitle">沿革 HISTORY</div>
+  <div class="hist">
+    <div class="h"><div class="y">1978年</div><div class="e">創業（クルマ販売を開始）</div></div>
+    <div class="h"><div class="y">1984年</div><div class="e">株式会社カーサービス山形を設立、東バイパスへ移転</div></div>
+    <div class="h"><div class="y">2019年</div><div class="e">創業40周年</div></div>
+    <div class="h"><div class="y">2024年</div><div class="e">創業45周年。野球部が県実業人野球大会で初優勝</div></div>
+    <div class="h"><div class="y">2025年</div><div class="e">過去最高売上 93億4,800万円。BYD AUTO 山形をオープン</div></div>
+  </div>
+</div>`;}
 
-<a href="#contact" class="floating-cta">📞 来店予約・お見積り</a>
+function presidentHTML(){return `<div class="pg pres">
+  <div class="pphoto"><img src="assets/president.jpg" alt="代表取締役社長 小川大輔"></div>
+  <div class="ptitle">PRESIDENT MESSAGE</div>
+  <h2>「クルマ選びの終着駅」として、<br>地域の一台に寄り添い続けます。</h2>
+  <div class="msg">創業より47年。私たちは新車から中古車まで、お客様一人ひとりのカーライフに「にこっと」笑顔が生まれる瞬間を大切にしてまいりました。販売後の車検・整備・保険まで、山形県内9店舗で末永くサポートいたします。これからも地域に必要とされ、愛される企業を目指してまいります。</div>
+  <div class="sign"><span class="ro">代表取締役社長</span><span class="nm">小川 大輔</span></div>
+</div>`;}
 
+function backHTML(){return `<div class="pg backc">
+  <div class="csy">CSY</div>
+  <h2>新車4WD軽自動車に<br><em>にこっと</em>乗るだけ。</h2>
+  <div class="tel">ご相談・お見積りはお気軽に<span class="n">023-631-3711</span></div>
+  <div class="small">株式会社カーサービス山形 ／ 創業47年<br>受付 9:30〜18:00 ・ 定休 火曜・水曜<br>このパンフレットはサービス紹介を目的としています。価格・仕様は変更となる場合があります。</div>
+</div>`;}
+
+/* ============ ENGINE (book page-flip: spread on desktop / single on mobile) ============ */
+const pages=[];
+pages.push({t:"表紙",html:coverHTML()});
+pages.push({t:"カーサービス山形の強み",html:strengthHTML()});
+pages.push({t:"にこっと乗るだけ7とは",html:introHTML()});
+pages.push({t:"お支払い方法と料金プラン",html:payHTML()});
+plans.forEach((pl,i)=>pages.push({t:`PLAN ${i+1}・${pl.cat}`,html:planHTML(pl,i)}));
+pages.push({t:"お得なパックプラン",html:packsHTML()});
+pages.push({t:"カーリースのしくみ",html:aboutHTML()});
+pages.push({t:"他社との比較",html:compareHTML()});
+pages.push({t:"お客様の声",html:voicesHTML()});
+pages.push({t:"よくあるご質問 ①",html:faqHTML(faqs.slice(0,6),1)});
+pages.push({t:"よくあるご質問 ②",html:faqHTML(faqs.slice(6),2)});
+pages.push({t:"カーサービス山形",html:csyHTML()});
+pages.push({t:"店舗のご案内 ①",html:storesHTML(stores.slice(0,5),1)});
+pages.push({t:"店舗のご案内 ②",html:storesHTML(stores.slice(5),2)});
+pages.push({t:"会社概要",html:companyHTML()});
+pages.push({t:"理念と沿革",html:historyHTML()});
+pages.push({t:"社長メッセージ",html:presidentHTML()});
+
+const book=document.getElementById('book');
+const viewport=document.getElementById('viewport');
+const elPrev=document.getElementById('prev'),elNext=document.getElementById('next');
+const elCur=document.getElementById('cur'),elTot=document.getElementById('tot'),elTtl=document.getElementById('ttl');
+const mqDesktop=window.matchMedia('(min-width:1024px)');
+let mode=null,papers=[],loc=1;
+function faceHTML(idx){return idx>=pages.length?backHTML():pages[idx].html;}
+
+/* SPREAD (desktop) */
+function buildSpread(){
+  mode='spread';
+  viewport.className='viewport mode-spread';
+  book.style.setProperty('--pw','min(45vw, calc((100vh - 188px) * 0.72))');
+  book.style.setProperty('--ph','calc(min(45vw, calc((100vh - 188px) * 0.72)) * 4 / 3)');
+  book.innerHTML='';papers=[];
+  const leaves=Math.ceil((pages.length+1)/2);
+  for(let p=0;p<leaves;p++){
+    const paper=document.createElement('div');
+    paper.className='paper';paper.style.zIndex=leaves-p;
+    paper.innerHTML=`<div class="face front">${faceHTML(2*p)}</div><div class="face back">${faceHTML(2*p+1)}</div>`;
+    book.appendChild(paper);papers.push(paper);
+  }
+  loc=1;applySpread();
+}
+function applySpread(){
+  const n=papers.length;
+  if(loc===1)book.style.transform='translateX(0%)';
+  else if(loc===n+1)book.style.transform='translateX(100%)';
+  else book.style.transform='translateX(50%)';
+  const f=loc-1;let title;
+  if(f===0)title=pages[0].t;
+  else{const li=2*f-1,ri=2*f;const lt=li<pages.length?pages[li].t:'裏表紙';const rt=ri<pages.length?pages[ri].t:'裏表紙';title=`${lt}　／　${rt}`;}
+  elTtl.textContent=title;elCur.textContent=loc;elTot.textContent=n+1;
+  elPrev.disabled=loc===1;elNext.disabled=loc===n+1;
+}
+function spreadNext(){if(loc>papers.length)return;const p=papers[loc-1];p.classList.add('flipped');p.style.zIndex=loc;loc++;applySpread();}
+function spreadPrev(){if(loc<=1)return;loc--;const p=papers[loc-1];p.classList.remove('flipped');p.style.zIndex=papers.length-(loc-1);applySpread();}
+
+/* SINGLE (mobile/tablet) */
+function buildSingle(){
+  mode='single';
+  viewport.className='viewport mode-single';
+  book.style.setProperty('--ph','min(82vh, calc(94vw / 0.66))');
+  book.style.setProperty('--pw','calc(min(82vh, calc(94vw / 0.66)) * 0.66)');
+  book.style.transform='none';
+  book.innerHTML='';papers=[];
+  pages.forEach((pg,i)=>{
+    const paper=document.createElement('div');
+    paper.className='paper';paper.style.zIndex=pages.length-i;
+    paper.innerHTML=`<div class="face front">${faceHTML(i)}</div><div class="face back" style="background:#0e1830"></div>`;
+    book.appendChild(paper);papers.push(paper);
+  });
+  loc=1;applySingle();
+}
+function applySingle(){
+  elTtl.textContent=pages[loc-1].t;elCur.textContent=loc;elTot.textContent=pages.length;
+  elPrev.disabled=loc===1;elNext.disabled=loc===pages.length;
+}
+function singleNext(){if(loc>=pages.length)return;const p=papers[loc-1];p.classList.add('flipped');p.style.zIndex=0;loc++;applySingle();}
+function singlePrev(){if(loc<=1)return;loc--;const p=papers[loc-1];p.classList.remove('flipped');p.style.zIndex=pages.length-(loc-1);applySingle();}
+
+function goNext(){mode==='spread'?spreadNext():singleNext();}
+function goPrev(){mode==='spread'?spreadPrev():singlePrev();}
+elNext.addEventListener('click',goNext);
+elPrev.addEventListener('click',goPrev);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')goNext();if(e.key==='ArrowLeft')goPrev();});
+let sx=null;
+book.addEventListener('touchstart',e=>{sx=e.changedTouches[0].clientX;},{passive:true});
+book.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45){dx<0?goNext():goPrev();}sx=null;},{passive:true});
+book.addEventListener('click',e=>{if(e.target.closest('a'))return;const r=book.getBoundingClientRect();(e.clientX-r.left>r.width/2)?goNext():goPrev();});
+function init(){mqDesktop.matches?buildSpread():buildSingle();}
+let curDesktop=mqDesktop.matches;
+const onChange=()=>{if(mqDesktop.matches!==curDesktop){curDesktop=mqDesktop.matches;init();}};
+mqDesktop.addEventListener?mqDesktop.addEventListener('change',onChange):mqDesktop.addListener(onChange);
+init();
+</script>
 </body>
 </html>
