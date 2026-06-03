@@ -114,26 +114,40 @@ a{color:inherit;text-decoration:none}
 .intro .desc{margin-top:13px;font-size:12px;color:var(--ink);line-height:1.85}
 .intro .desc b{color:var(--orange)}
 
-/* ---------- PAYMENT / PLANS OVERVIEW ---------- */
+/* ---------- PAYMENT (carlease appeal) ---------- */
 .pay{background:var(--paper-2)}
-.pay .methods{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:2px}
-.pay .m{background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 8px;text-align:center}
-.pay .m.on{border-color:var(--orange);box-shadow:0 4px 14px rgba(240,120,0,.18)}
-.pay .m .ic{font-size:19px}
-.pay .m b{display:block;font-size:12.5px;color:var(--navy);margin-top:4px}
-.pay .m span{font-size:9.5px;color:var(--muted)}
-.pay .m .rec{display:inline-block;margin-top:4px;background:var(--orange);color:#fff;font-size:9px;font-weight:800;padding:1px 7px;border-radius:999px}
-.pay .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}
-.pay .plan{border:1px solid var(--line);border-radius:11px;padding:11px 7px;text-align:center;background:#fff}
-.pay .plan .pt{font-size:10px;color:#fff;font-weight:800;padding:2px 9px;border-radius:999px;display:inline-block}
+.pay .lead{font-size:11px;color:var(--ink);line-height:1.55;margin-top:1px}
+.pay .lead b{color:var(--orange)}
+/* initial-cost comparison */
+.pay .costttl{font-size:11px;font-weight:800;color:var(--navy);letter-spacing:.04em;margin:9px 0 5px;display:flex;align-items:center;gap:7px}
+.pay .costttl::before{content:"";width:4px;height:14px;background:var(--orange);border-radius:2px}
+.pay .cost{display:flex;flex-direction:column;gap:6px}
+.pay .cr{display:flex;align-items:center;gap:9px}
+.pay .cr .nm{flex:0 0 84px;font-size:10.5px;font-weight:800;color:var(--muted);line-height:1.3}
+.pay .cr .track{flex:1;height:23px;background:#eef1f6;border-radius:7px;position:relative;overflow:hidden}
+.pay .cr .fill{position:absolute;top:0;left:0;height:100%;border-radius:7px;display:flex;align-items:center;padding:0 9px;font-size:10px;font-weight:800;color:#fff;white-space:nowrap}
+.pay .cr.cash .nm{color:var(--navy)} .pay .cr.cash .fill{background:#9aa6bd}
+.pay .cr.loan .nm{color:var(--navy)} .pay .cr.loan .fill{background:#6b7790}
+.pay .cr.lease .nm{color:var(--orange)} .pay .cr.lease .fill{background:linear-gradient(90deg,var(--orange-2),var(--orange));box-shadow:0 3px 10px rgba(240,120,0,.35)}
+.pay .cr.lease .track{flex:0 1 auto;width:34%;background:rgba(240,120,0,.12);border:1px solid rgba(240,120,0,.3)}
+.pay .cr .val{font-size:11px;font-weight:800;color:var(--orange);white-space:nowrap}
+.pay .cr .zero{color:var(--orange);font-weight:900;font-size:14px}
+.pay .point{margin-top:8px;background:#fff;border:1.5px solid var(--orange);border-radius:11px;padding:8px 11px;display:flex;align-items:center;gap:9px}
+.pay .point .big{font-size:22px;font-weight:900;color:var(--orange);line-height:1;white-space:nowrap}
+.pay .point .big small{font-size:10.5px}
+.pay .point .tx{font-size:10.5px;color:var(--ink);line-height:1.45}.pay .point .tx b{color:var(--navy)}
+/* merit chips */
+.pay .four{display:flex;flex-wrap:nowrap;gap:4px;margin-top:8px}
+.pay .four span{flex:1;text-align:center;font-size:9.5px;font-weight:800;color:var(--navy);background:rgba(240,120,0,.1);border:1px solid rgba(240,120,0,.25);border-radius:999px;padding:4px 4px}
+/* plans (compact pills) */
+.pay .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:7px}
+.pay .plan{border:1px solid var(--line);border-radius:10px;padding:7px 5px 8px;text-align:center;background:#fff}
+.pay .plan .pt{font-size:9.5px;color:#fff;font-weight:800;padding:2px 8px;border-radius:999px;display:inline-block}
 .pay .plan.p1 .pt{background:var(--orange)} .pay .plan.p2 .pt{background:var(--pink)} .pay .plan.p3 .pt{background:var(--blue)}
-.pay .plan .pn{font-size:10px;color:var(--muted);font-weight:700;margin-top:5px}
-.pay .plan .pm{font-size:19px;font-weight:900;color:var(--red);margin-top:2px;line-height:1.05}
-.pay .plan .pm small{font-size:10px;color:var(--muted);font-weight:700}
-.pay .end{margin-top:12px;font-size:11px;color:var(--muted);line-height:1.65}
+.pay .plan .pm{font-size:16px;font-weight:900;color:var(--red);margin-top:4px;line-height:1.05}
+.pay .plan .pm small{font-size:9.5px;color:var(--muted);font-weight:700}
+.pay .end{margin-top:7px;font-size:9.5px;color:var(--muted);line-height:1.55}
 .pay .end b{color:var(--navy)}
-.pay .four{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.pay .four span{font-size:10.5px;font-weight:700;color:var(--navy);background:rgba(240,120,0,.1);border:1px solid rgba(240,120,0,.25);border-radius:999px;padding:4px 10px}
 
 /* ---------- PLAN (cars grid) ---------- */
 .planpg{background:var(--paper)}
@@ -417,21 +431,30 @@ function introHTML(){return `<div class="pg intro">
 </div>`;}
 
 function payHTML(){return `<div class="pg pay">
-  <div class="sechead"><div class="k">PAYMENT & PLANS</div><h2>お支払い方法と料金プラン</h2><div class="bar"></div></div>
-  <div class="methods">
-    <div class="m"><div class="ic">💴</div><b>現金一括</b><span>シンプルでお得</span></div>
-    <div class="m"><div class="ic">📝</div><b>オートローン</b><span>分割でご購入</span></div>
-    <div class="m on"><div class="ic">🚙</div><b>カーリース</b><span>月々定額・頭金0円</span><div class="rec">おすすめ</div></div>
+  <div class="sechead"><div class="k">EASY TO START</div><h2>はじめやすさが、ちがう。</h2><div class="bar"></div></div>
+  <div class="lead">カーリース<b>「にこっと乗るだけ7」</b>は、現金一括やオートローンより<b>はじめにかかるお金が少なく</b>、気軽にスタートできます。</div>
+
+  <div class="costttl">はじめにかかるお金くらべ</div>
+  <div class="cost">
+    <div class="cr cash"><div class="nm">現金一括</div><div class="track"><div class="fill" style="width:100%">車両代を全額まとめて用意</div></div></div>
+    <div class="cr loan"><div class="nm">オートローン</div><div class="track"><div class="fill" style="width:52%">頭金＋登録諸費用が必要</div></div></div>
+    <div class="cr lease"><div class="nm">にこっと乗るだけ7</div><div class="track"><div class="fill" style="width:13%"></div></div><div class="val"><span class="zero">¥0</span> 〜でOK</div></div>
   </div>
+
+  <div class="point">
+    <div class="big">頭金<small>　</small>0<small>円</small></div>
+    <div class="tx"><b>頭金0円・初期費用0円</b>からお申込みOK。まとまった出費なしで新車4WDに乗りはじめられます。</div>
+  </div>
+  <div class="four"><span>✓ 税金コミ</span><span>✓ 車検コミ</span><span>✓ メンテコミ</span><span>✓ 月々定額</span></div>
+
+  <div class="costttl">月々定額プラン（新車4WD・7年）</div>
   <div class="plans">
-    <div class="plan p1"><span class="pt">PLAN 1</span><div class="pn">スタンダード</div><div class="pm">11,000<small>円〜</small></div></div>
-    <div class="plan p2"><span class="pt">PLAN 2</span><div class="pn">広々モデル</div><div class="pm">13,200<small>円〜</small></div></div>
-    <div class="plan p3"><span class="pt">PLAN 3</span><div class="pn">カスタム</div><div class="pm">16,200<small>円〜</small></div></div>
+    <div class="plan p1"><span class="pt">PLAN 1</span><div class="pm">11,000<small>円〜</small></div></div>
+    <div class="plan p2"><span class="pt">PLAN 2</span><div class="pm">13,200<small>円〜</small></div></div>
+    <div class="plan p3"><span class="pt">PLAN 3</span><div class="pm">16,200<small>円〜</small></div></div>
   </div>
-  <div class="end"><b>満了時は次の4つから選べます。</b></div>
-  <div class="four"><span>① 再リース</span><span>② ご自身で買取</span><span>③ 乗り換え</span><span>④ 返却</span></div>
-  <div class="end" style="margin-top:9px">※全車種 新車・4WD・7年（84回）リース。月額は税込・最低価格。ボーナス加算併用例（加算66,000円×14回）あり。任意保険は別途（月額に組込可）。</div>
-  <div class="pgfoot"><span>CAR LEASE</span><span class="b">CSY</span></div>
+  <div class="end">※月額は税込・最低価格。ボーナス加算併用例あり。任意保険は別途（月額に組込可）。図は初期費用のイメージです。</div>
+  <div class="pgfoot"><span>CAR LEASE「にこっと乗るだけ7」</span><span class="b">CSY</span></div>
 </div>`;}
 
 function planHTML(pl,i){
@@ -591,7 +614,7 @@ const pages=[];
 pages.push({t:"表紙",html:coverHTML()});
 pages.push({t:"カーサービス山形の強み",html:strengthHTML()});
 pages.push({t:"にこっと乗るだけ7とは",html:introHTML()});
-pages.push({t:"お支払い方法と料金プラン",html:payHTML()});
+pages.push({t:"はじめやすさ・料金プラン",html:payHTML()});
 plans.forEach((pl,i)=>pages.push({t:`PLAN ${i+1}・${pl.cat}`,html:planHTML(pl,i)}));
 pages.push({t:"お得なパックプラン",html:packsHTML()});
 pages.push({t:"カーリースのしくみ",html:aboutHTML()});
