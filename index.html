@@ -69,24 +69,24 @@ a{color:inherit;text-decoration:none}
     repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 14px,transparent 14px 28px),
     linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 60%,#26395f 100%);
     color:#fff;justify-content:space-between;align-items:stretch}
-.cover .ctop{flex:0 0 auto}
-.cover .csy{font-family:Georgia,serif;font-style:italic;font-weight:800;font-size:clamp(24px,6.4vmin,36px);line-height:1}
-.cover .csb{font-size:9.5px;letter-spacing:.2em;color:var(--orange-2);font-weight:700;margin-top:4px}
-/* hero image */
-.cover .cmid{flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;padding:clamp(10px,2.4vmin,18px) 0}
-.cover .coverimg{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:12px;border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 40px rgba(0,0,0,.4)}
-/* product lockup */
-.cover .clock{flex:0 0 auto;display:flex;flex-direction:column;gap:9px}
-.cover h1{font-family:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;font-size:clamp(22px,6.4vmin,32px);font-weight:900;line-height:1.05;letter-spacing:.01em;white-space:nowrap}
-.cover .nico{display:inline-grid;place-items:center;width:.92em;height:.92em;background:var(--orange);color:#fff;border-radius:50%;font-size:.82em;transform:translateY(.04em);margin-left:.04em}
-.cover .crow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+/* top band: CSY (left) + character (right) */
+.cover .ctop{flex:0 0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.cover .cbrandbar{display:flex;flex-direction:column}
+.cover .csy{font-family:Georgia,serif;font-style:italic;font-weight:800;font-size:clamp(22px,5.8vmin,32px);line-height:1}
+.cover .csb{font-size:9.5px;letter-spacing:.2em;color:var(--orange-2);font-weight:700;margin-top:4px;white-space:nowrap}
+.cover .char{width:auto;height:auto;max-height:clamp(74px,17vmin,116px);object-fit:contain;margin:-4px -4px 0 0;filter:drop-shadow(0 6px 14px rgba(0,0,0,.4))}
+/* main: poster bottom-left + logo/price right */
+.cover .cmain{flex:1 1 auto;min-height:0;display:flex;align-items:flex-end;gap:clamp(10px,3vmin,22px)}
+.cover .coverimg{flex:0 0 auto;width:clamp(150px,52%,300px);height:auto;max-height:100%;object-fit:contain;filter:drop-shadow(0 14px 30px rgba(0,0,0,.45))}
+.cover .rightcol{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(8px,2.4vmin,14px);padding-bottom:clamp(6px,3vmin,22px)}
+.cover .rightcol .logo{width:100%;max-width:230px;height:auto;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
 .cover .sb{display:inline-block;background:#fff200;color:var(--navy);font-weight:900;font-size:clamp(12px,3.4vmin,16px);padding:5px 13px;border-radius:9px;transform:rotate(-2deg);box-shadow:0 5px 0 rgba(0,0,0,.18);white-space:nowrap}
-.cover .badge{flex:0 0 auto;display:inline-flex;align-items:baseline;gap:4px;background:radial-gradient(circle at 30% 20%,#fff6e8,#ffb24d 55%,var(--orange));color:var(--navy);border:3px solid rgba(255,255,255,.25);border-radius:13px;padding:7px 14px;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.cover .badge{display:inline-flex;align-items:baseline;gap:4px;white-space:nowrap;background:radial-gradient(circle at 30% 20%,#fff6e8,#ffb24d 55%,var(--orange));color:var(--navy);border:3px solid rgba(255,255,255,.25);border-radius:13px;padding:7px 14px;box-shadow:0 8px 22px rgba(0,0,0,.28)}
 .cover .badge .s{font-size:11px;font-weight:900;letter-spacing:.04em}
-.cover .badge .b{font-size:clamp(26px,7vmin,38px);font-weight:900;line-height:.95;letter-spacing:-.01em}
+.cover .badge .b{font-size:clamp(23px,6.2vmin,38px);font-weight:900;line-height:.95;letter-spacing:-.01em}
 .cover .badge .b span{font-size:.4em;font-weight:800}
 .cover .badge .s2{font-size:9px;font-weight:800;letter-spacing:.04em;align-self:flex-end;margin-bottom:3px}
-.cover .foot{flex:0 0 auto;margin-top:11px;font-size:10.5px;color:rgba(255,255,255,.7);letter-spacing:.03em;display:flex;justify-content:space-between;align-items:center;gap:8px;white-space:nowrap;border-top:1px solid rgba(255,255,255,.12);padding-top:9px}
+.cover .foot{flex:0 0 auto;margin-top:10px;font-size:10.5px;color:rgba(255,255,255,.7);letter-spacing:.03em;display:flex;justify-content:space-between;align-items:center;gap:8px;white-space:nowrap;border-top:1px solid rgba(255,255,255,.12);padding-top:9px}
 .cover .foot .hint{color:var(--orange-2);font-weight:700}
 
 /* ---------- STRENGTHS ---------- */
@@ -395,13 +395,14 @@ const stores=[
 
 /* ============ PAGE BUILDERS ============ */
 function coverHTML(){return `<div class="pg cover">
-  <div class="ctop"><div class="csy">CSY</div><div class="csb">CAR SERVICE YAMAGATA ／ 創業47年</div></div>
-  <div class="cmid">
-    <img class="coverimg" src="assets/cover.png" alt="新車の軽自動車4WDを月々定額／カーリースはカーサービス山形">
+  <div class="ctop">
+    <div class="cbrandbar"><div class="csy">CSY</div><div class="csb">CAR SERVICE YAMAGATA</div></div>
+    <img class="char" src="assets/character1.png" alt="にこっと乗るだけ7 キャラクター">
   </div>
-  <div class="clock">
-    <h1>にこっと乗るだけ<span class="nico">7</span></h1>
-    <div class="crow">
+  <div class="cmain">
+    <img class="coverimg" src="assets/cover.png" alt="新車の軽自動車4WDを月々定額／カーリースはカーサービス山形">
+    <div class="rightcol">
+      <img class="logo" src="assets/logo.png" alt="にこっと乗るだけ7">
       <div class="sb">すべて コミコミ！</div>
       <div class="badge"><div class="s">月々</div><div class="b">11,000<span>円〜</span></div><div class="s2">税込</div></div>
     </div>
