@@ -60,6 +60,10 @@ body.is-fs .fsbtn .fslabel{display:none}
 
 /* ---------- stage ---------- */
 .stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 14px 12px;gap:12px}
+/* fullscreen: show flipbook only (hide brand header & hint, keep nav controls, maximize book) */
+body.is-fs .appbar{display:none}
+body.is-fs .hint-swipe{display:none}
+body.is-fs .stage{padding:6px 10px max(10px,env(safe-area-inset-bottom)) 10px;gap:8px;justify-content:center}
 .viewport{perspective:2600px;display:flex;align-items:center;justify-content:center}
 .book{position:relative;width:var(--pw);height:var(--ph);transition:transform .6s ease;transform-style:preserve-3d}
 .paper{position:absolute;top:0;left:0;width:100%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.4,.15,.2,1)}
@@ -676,8 +680,6 @@ function faceHTML(idx){return idx>=pages.length?backHTML():pages[idx].html;}
 function buildSpread(){
   mode='spread';
   viewport.className='viewport mode-spread';
-  book.style.setProperty('--pw','min(45vw, calc((100vh - 188px) * 0.72))');
-  book.style.setProperty('--ph','calc(min(45vw, calc((100vh - 188px) * 0.72)) * 4 / 3)');
   book.innerHTML='';papers=[];
   const leaves=Math.ceil((pages.length+1)/2);
   for(let p=0;p<leaves;p++){
@@ -686,7 +688,7 @@ function buildSpread(){
     paper.innerHTML=`<div class="face front">${faceHTML(2*p)}</div><div class="face back">${faceHTML(2*p+1)}</div>`;
     book.appendChild(paper);papers.push(paper);
   }
-  loc=1;applySpread();
+  loc=1;layout();applySpread();
 }
 function applySpread(){
   const n=papers.length;
@@ -706,8 +708,6 @@ function spreadPrev(){if(loc<=1)return;loc--;const p=papers[loc-1];p.classList.r
 function buildSingle(){
   mode='single';
   viewport.className='viewport mode-single';
-  book.style.setProperty('--ph','min(82vh, calc(94vw / 0.66))');
-  book.style.setProperty('--pw','calc(min(82vh, calc(94vw / 0.66)) * 0.66)');
   book.style.transform='none';
   book.innerHTML='';papers=[];
   pages.forEach((pg,i)=>{
@@ -716,7 +716,27 @@ function buildSingle(){
     paper.innerHTML=`<div class="face front">${faceHTML(i)}</div><div class="face back" style="background:#0e1830"></div>`;
     book.appendChild(paper);papers.push(paper);
   });
-  loc=1;applySingle();
+  loc=1;layout();applySingle();
+}
+/* size the book from measured available space (robust against iPad/Safari chrome) */
+function layout(){
+  if(!mode)return;
+  const ab=document.querySelector('.appbar'),ct=document.querySelector('.controls'),hs=document.querySelector('.hint-swipe');
+  const abH=ab&&getComputedStyle(ab).display!=='none'?ab.offsetHeight:0;
+  const ctH=ct?ct.offsetHeight:0;
+  const hsH=hs&&getComputedStyle(hs).display!=='none'?hs.offsetHeight:0;
+  const availH=Math.max(240, window.innerHeight - abH - ctH - hsH - 44);
+  const stage=document.querySelector('.stage');
+  const availW=Math.max(240, (stage?stage.clientWidth:window.innerWidth));
+  if(mode==='spread'){
+    const pw=Math.min(availW*0.47, availH*0.72);
+    book.style.setProperty('--pw',pw+'px');
+    book.style.setProperty('--ph',(pw*4/3)+'px');
+  }else{
+    const ph=Math.min(availH, availW*0.96/0.66);
+    book.style.setProperty('--ph',ph+'px');
+    book.style.setProperty('--pw',(ph*0.66)+'px');
+  }
 }
 function applySingle(){
   elTtl.textContent=pages[loc-1].t;elCur.textContent=loc;elTot.textContent=pages.length;
@@ -744,7 +764,7 @@ book.addEventListener('click',e=>{if(e.target.closest('a'))return;const r=book.g
   const reqFn=root.requestFullscreen||root.webkitRequestFullscreen||root.mozRequestFullScreen||root.msRequestFullscreen;
   const exitFn=document.exitFullscreen||document.webkitExitFullscreen||document.mozCancelFullScreen||document.msExitFullscreen;
   function fsEl(){return document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement||document.msFullscreenElement;}
-  function sync(){document.body.classList.toggle('is-fs',!!fsEl());btn.title=fsEl()?'全画面を終了':'全画面表示';}
+  function sync(){document.body.classList.toggle('is-fs',!!fsEl());btn.title=fsEl()?'全画面を終了':'全画面表示';requestAnimationFrame(()=>{layout();setTimeout(layout,180);});}
   ['fullscreenchange','webkitfullscreenchange','mozfullscreenchange','MSFullscreenChange'].forEach(ev=>document.addEventListener(ev,sync));
   if(isStandalone){btn.style.display='none';return;} // すでに全画面（ホーム画面起動）
   btn.addEventListener('click',()=>{
@@ -762,6 +782,9 @@ function init(){mqDesktop.matches?buildSpread():buildSingle();}
 let curDesktop=mqDesktop.matches;
 const onChange=()=>{if(mqDesktop.matches!==curDesktop){curDesktop=mqDesktop.matches;init();}};
 mqDesktop.addEventListener?mqDesktop.addEventListener('change',onChange):mqDesktop.addListener(onChange);
+let rT=null;
+window.addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(layout,120);});
+window.addEventListener('orientationchange',()=>setTimeout(layout,250));
 init();
 </script>
 </body>
