@@ -6,6 +6,14 @@
 <title>にこっと乗るだけ7 デジタルパンフレット｜カーサービス山形｜新車4WD軽自動車 月々定額カーリース</title>
 <meta name="description" content="株式会社カーサービス山形「にこっと乗るだけ7」。新車の4WD軽自動車が月々11,000円〜の定額カーリース。車両代・自動車税・車検・メンテ・ロードサービスまで全部コミコミ。ページをめくる感覚でサービスをご覧いただけます。">
 <meta name="theme-color" content="#16243f">
+<!-- PWA / 全画面（ホーム画面に追加で全画面表示） -->
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="にこっと乗るだけ7">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="assets/icon-192.png">
 <meta property="og:title" content="にこっと乗るだけ7 デジタルパンフレット｜カーサービス山形">
 <meta property="og:description" content="新車4WD軽自動車が月々定額・コミコミ。創業47年・山形県内9店舗のカーサービス山形がお届けする、ページをめくるデジタルパンフレット。">
 <meta property="og:type" content="website">
@@ -29,13 +37,26 @@ body{
 a{color:inherit;text-decoration:none}
 
 /* ---------- top brand bar ---------- */
-.appbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px clamp(16px,4vw,40px);color:#fff}
+.appbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:calc(8px + env(safe-area-inset-top)) clamp(14px,4vw,40px) 8px;color:#fff}
 .logo{display:flex;align-items:center;gap:12px}
 .logo .csy{font-family:Georgia,"Times New Roman",serif;font-weight:800;font-style:italic;font-size:26px;color:#fff;line-height:1}
 .logo .sub{font-size:9px;letter-spacing:.2em;color:var(--orange-2);line-height:1.5;font-weight:700}
-.appbar .tag{font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.72);text-align:right}
+.appbar .tag{font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.72);text-align:right;margin-left:auto}
 .appbar .tag b{color:var(--orange-2)}
 @media(max-width:640px){.appbar .tag{display:none}}
+/* fullscreen button */
+.fsbtn{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:7px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#fff;font-size:13px;font-weight:700;cursor:pointer;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:.2s;white-space:nowrap}
+.fsbtn:hover{background:var(--orange);border-color:var(--orange)}
+.fsbtn .fsi-open,.fsbtn .fsi-close{font-size:15px;line-height:1}
+.fsbtn .fsi-close{display:none}
+body.is-fs .fsbtn .fsi-open{display:none}
+body.is-fs .fsbtn .fsi-close{display:inline}
+body.is-fs .fsbtn .fslabel{display:none}
+@media(max-width:640px){.fsbtn{margin-left:0;padding:7px 11px}.fsbtn .fslabel{display:none}}
+/* toast */
+.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%) translateY(12px);z-index:10000;background:rgba(15,26,48,.96);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 18px;font-size:12.5px;line-height:1.6;max-width:86vw;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast b{color:var(--orange-2)}
 
 /* ---------- stage ---------- */
 .stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 14px 12px;gap:12px}
@@ -316,7 +337,11 @@ a{color:inherit;text-decoration:none}
       <div class="sub">CAR<br>SERVICE<br>YAMAGATA</div>
     </div>
     <div class="tag">受付 9:30〜18:00 ／ 定休 火・水<br><b>創業47年</b>・クルマ選びの終着駅</div>
+    <button class="fsbtn" id="fsbtn" aria-label="全画面表示" title="全画面表示">
+      <span class="fsi-open">⛶</span><span class="fsi-close">✕</span><span class="fslabel">全画面</span>
+    </button>
   </div>
+  <div class="toast" id="toast"></div>
   <div class="stage">
     <div class="viewport" id="viewport">
       <div class="book" id="book"></div>
@@ -709,6 +734,30 @@ let sx=null;
 book.addEventListener('touchstart',e=>{sx=e.changedTouches[0].clientX;},{passive:true});
 book.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45){dx<0?goNext():goPrev();}sx=null;},{passive:true});
 book.addEventListener('click',e=>{if(e.target.closest('a'))return;const r=book.getBoundingClientRect();(e.clientX-r.left>r.width/2)?goNext():goPrev();});
+/* ---- fullscreen ---- */
+(function(){
+  const btn=document.getElementById('fsbtn'),toast=document.getElementById('toast');
+  const root=document.documentElement;
+  let toastT=null;
+  function showToast(html,ms){clearTimeout(toastT);toast.innerHTML=html;toast.classList.add('show');toastT=setTimeout(()=>toast.classList.remove('show'),ms||4200);}
+  const isStandalone=window.matchMedia('(display-mode:standalone)').matches||window.matchMedia('(display-mode:fullscreen)').matches||window.navigator.standalone===true;
+  const reqFn=root.requestFullscreen||root.webkitRequestFullscreen||root.mozRequestFullScreen||root.msRequestFullscreen;
+  const exitFn=document.exitFullscreen||document.webkitExitFullscreen||document.mozCancelFullScreen||document.msExitFullscreen;
+  function fsEl(){return document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement||document.msFullscreenElement;}
+  function sync(){document.body.classList.toggle('is-fs',!!fsEl());btn.title=fsEl()?'全画面を終了':'全画面表示';}
+  ['fullscreenchange','webkitfullscreenchange','mozfullscreenchange','MSFullscreenChange'].forEach(ev=>document.addEventListener(ev,sync));
+  if(isStandalone){btn.style.display='none';return;} // すでに全画面（ホーム画面起動）
+  btn.addEventListener('click',()=>{
+    if(fsEl()){exitFn&&exitFn.call(document);return;}
+    if(reqFn){Promise.resolve(reqFn.call(root)).catch(()=>{});}
+    else{ // iPhone Safari等：Fullscreen API非対応
+      const ios=/iP(hone|od|ad)/.test(navigator.userAgent);
+      showToast(ios?'このブラウザは全画面ボタン非対応です。<br><b>共有 → ホーム画面に追加</b>でフルスクリーン表示できます。':'このブラウザは全画面表示に対応していません。',6000);
+    }
+  });
+  sync();
+})();
+
 function init(){mqDesktop.matches?buildSpread():buildSingle();}
 let curDesktop=mqDesktop.matches;
 const onChange=()=>{if(mqDesktop.matches!==curDesktop){curDesktop=mqDesktop.matches;init();}};
