@@ -1,5 +1,5 @@
 /* にこっと乗るだけ7 デジタルパンフレット — オフライン対応 Service Worker */
-const CACHE='nikotto7-v1';
+const CACHE='nikotto7-v2';
 const ASSETS=[
   './',
   'index.html',

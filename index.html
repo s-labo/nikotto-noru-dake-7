@@ -80,7 +80,7 @@ body.is-fs .stage{padding:6px 10px max(10px,env(safe-area-inset-bottom)) 10px;ga
 .mode-single .face.front::after{left:0;width:18px;background:linear-gradient(90deg,rgba(22,36,63,.14),transparent)}
 
 /* ---------- shared page shell ---------- */
-.pg{position:absolute;inset:0;display:flex;flex-direction:column;padding:clamp(16px,3.2vmin,26px);overflow:hidden}
+.pg{position:absolute;top:0;left:0;right:0;min-height:100%;display:flex;flex-direction:column;padding:clamp(16px,3.2vmin,26px);overflow:hidden;transform-origin:top center}
 .sechead{margin-bottom:12px}
 .sechead .k{font-size:10.5px;letter-spacing:.26em;color:var(--orange);font-weight:800}
 .sechead h2{font-size:clamp(19px,4.2vmin,25px);color:var(--navy);font-weight:800;margin-top:5px;letter-spacing:.02em}
@@ -737,6 +737,16 @@ function layout(){
     book.style.setProperty('--ph',ph+'px');
     book.style.setProperty('--pw',(ph*0.66)+'px');
   }
+  requestAnimationFrame(fitPages);
+}
+/* 各ページの内容をページ枠に自動フィット（はみ出す分だけ縮小）※デバイス問わず見切れ防止 */
+function fitPages(){
+  document.querySelectorAll('.face').forEach(face=>{
+    const pg=face.querySelector('.pg'); if(!pg)return;
+    pg.style.transform='none';
+    const fh=face.clientHeight, ch=pg.scrollHeight;
+    if(fh>0&&ch>fh+1) pg.style.transform='scale('+(fh/ch).toFixed(4)+')';
+  });
 }
 function applySingle(){
   elTtl.textContent=pages[loc-1].t;elCur.textContent=loc;elTot.textContent=pages.length;
@@ -785,6 +795,7 @@ mqDesktop.addEventListener?mqDesktop.addEventListener('change',onChange):mqDeskt
 let rT=null;
 window.addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(layout,120);});
 window.addEventListener('orientationchange',()=>setTimeout(layout,250));
+window.addEventListener('load',()=>{layout();setTimeout(layout,120);});
 init();
 
 /* ---- オフライン対応（Service Worker登録） ---- */
