@@ -786,6 +786,9 @@ let rT=null;
 window.addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(layout,120);});
 window.addEventListener('orientationchange',()=>setTimeout(layout,250));
 init();
+
+/* ---- オフライン対応（Service Worker登録） ---- */
+if('serviceWorker'in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
 </script>
 </body>
 </html>
